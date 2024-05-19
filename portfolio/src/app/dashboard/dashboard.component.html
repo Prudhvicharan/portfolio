@@ -8,13 +8,13 @@
         <a mat-button class="menu-link" data-section="skills">Skills</a>
         <a mat-button class="menu-link" data-section="contact">Contact</a>
         <button class="darkmode" (click)="toggleDarkTheme($event)">
-            <img src="../../assets/{{ isDarkTheme ? 'sun2.svg' : 'moon1.svg' }}" alt="theme-icon">
+            <img src="assets/{{ isDarkTheme ? 'sun2.svg' : 'moon1.svg' }}" alt="theme-icon">
         </button>
 
     </div>
 
     <button class="sidebar-button" (click)="toggleSidebar()" *ngIf="showSidebarToggle"><img
-            src="../../assets/{{ isSidebarOpen ? 'cross.svg' : 'navigation.svg' }}" alt="theme-icon"></button>
+            src="assets/{{ isSidebarOpen ? 'cross.svg' : 'navigation.svg' }}" alt="theme-icon"></button>
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">
         <div class="intro-content">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="intro-photo">
-                <img src="../../assets/pc-pic.png" alt="Your Photo" class="photo">
+                <img src="assets/pc-pic.png" alt="Your Photo" class="photo">
             </div>
         </div>
     </section>
