@@ -46,6 +46,32 @@
   font-style: italic;
 }
 
+/* Material Icons */
+@font-face {
+  font-family: 'Material Icons';
+  src: url('/assets/fonts/material-icons/MaterialIcons-Regular.woff2') format('woff2'),
+       url('/assets/fonts/material-icons/MaterialIcons-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
