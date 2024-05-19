@@ -1,7 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+/* Roboto Light (300) */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Roboto Regular (400) */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Roboto Medium (500) */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Roboto Italic */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/roboto/Roboto-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Roboto Bold */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Roboto Bold Italic */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/roboto/Roboto-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Define dark colors as custom properties */
 :root {
@@ -38,17 +89,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   :root{
     --last-name: #d69c8c;
   }
-
-//   .mat-mdc-snack-bar-container .mdc-snackbar__surface {
-//     background-color: var(--primary-light) !important;
-// }
-
-// .mat-mdc-snack-bar-container .mdc-snackbar__label {
-//     color: var(--text-light-primary) !important;
-
-// }
-
-// .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
-//     color: var(--text-light-primary) !important;
-//     --mat-mdc-button-persistent-ripple-color: var(--text-light-primary) !important;
-// }
