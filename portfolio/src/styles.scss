@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Define dark colors as custom properties */
+:root {
+    --primary-dark: #002029;
+    --secondary-dark: #00303D;
+    --tertiary-dark: #004052;
+    --quaternary-dark: #005066;
+    --quinary-dark: #00607A;
+}
+  
+/* Define light colors as custom properties */
+:root {
+  --primary-light: #EDEDE9;
+  --secondary-light: #DCDCD8;
+  --tertiary-light: #F5EBE0;
+  --quaternary-light: #E3D5CA;
+  --quinary-light: #D5BDAF;
+}
+
+:root {
+    --text-dark-primary: #FFFFFF; /* A shade of white, cream, or light gray for primary text on dark backgrounds */
+    --text-dark-secondary: #E0E0E0; /* A slightly darker color for secondary text on dark backgrounds */
+    --text-dark-tertiary: #CCCCCC; /* A subtle gray or silver color for additional information or fine print on dark backgrounds */
+    --text-dark-accent: #FFA500; /* An accent color that stands out on dark backgrounds */
+  }
+
+  :root {
+    --text-light-primary: #000000; /* A dark color, such as black or dark gray for primary text on light backgrounds */
+    --text-light-secondary: #333333; /* A slightly lighter shade for secondary text on light backgrounds */
+    --text-light-tertiary: #999999; /* A muted color like a soft gray for additional information or fine print on light backgrounds */
+    --text-light-accent: #3498DB; /* An accent color that contrasts well with light backgrounds */
+  }
+  
+  :root{
+    --last-name: #d69c8c;
+  }
+
+//   .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+//     background-color: var(--primary-light) !important;
+// }
+
+// .mat-mdc-snack-bar-container .mdc-snackbar__label {
+//     color: var(--text-light-primary) !important;
+
+// }
+
+// .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+//     color: var(--text-light-primary) !important;
+//     --mat-mdc-button-persistent-ripple-color: var(--text-light-primary) !important;
+// }
