@@ -1,52 +1,17 @@
 <div class="dashboard" [ngClass]="{'dark-theme': isDarkTheme}">
     <!-- Top Menu Bar -->
-    <div class="navbar" *ngIf="!showSidebarToggle">
-        <a mat-button class="menu-link" data-section="dashboard">Home</a>
-        <a mat-button class="menu-link" data-section="work">Work Experience</a>
-        <a mat-button class="menu-link" data-section="education">Education</a>
-        <a mat-button class="menu-link" data-section="projects">Projects</a>
-        <a mat-button class="menu-link" data-section="skills">Skills</a>
-        <a mat-button class="menu-link" data-section="contact">Contact</a>
+    <div class="navbar">
+        <a class="menu-link" data-section="dashboard">Home</a>
+        <a class="menu-link" data-section="work">Work Experience</a>
+        <a class="menu-link" data-section="education">Education</a>
+        <a class="menu-link" data-section="projects">Projects</a>
+        <a class="menu-link" data-section="skills">Skills</a>
+        <a class="menu-link" data-section="contact">Contact</a>
         <button class="darkmode" (click)="toggleDarkTheme($event)">
             <img src="assets/{{ isDarkTheme ? 'sun2.svg' : 'moon1.svg' }}" alt="theme-icon">
         </button>
     </div>
-    <button class="sidebar-button" (click)="toggleSidebar()" *ngIf="showSidebarToggle">
-        <img src="assets/{{ isSidebarOpen ? 'cross.svg' : 'navigation.svg' }}" alt="theme-icon">
-    </button>
 
-    <!-- Sidebar -->
-    <div class="sidebar" [ngClass]="{'sidebar-open': isSidebarOpen}">
-        <div class="sidebar-header">
-            <h3>Menu</h3>
-        </div>
-        <nav class="sidebar-nav">
-            <a class="sidebar-link menu-link" data-section="dashboard">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a class="sidebar-link menu-link" data-section="work">
-                <i class="fas fa-briefcase"></i>
-                <span>Work Experience</span>
-            </a>
-            <a class="sidebar-link menu-link" data-section="education">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Education</span>
-            </a>
-            <a class="sidebar-link menu-link" data-section="projects">
-                <i class="fas fa-project-diagram"></i>
-                <span>Projects</span>
-            </a>
-            <a class="sidebar-link menu-link" data-section="skills">
-                <i class="fas fa-tools"></i>
-                <span>Skills</span>
-            </a>
-            <a class="sidebar-link menu-link" data-section="contact">
-                <i class="fas fa-tools"></i>
-                <span>Contact</span>
-            </a>
-        </nav>
-    </div>
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">
         <div class="intro-content">

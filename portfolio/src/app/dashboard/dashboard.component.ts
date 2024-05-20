@@ -72,7 +72,7 @@ export class DashboardComponent implements OnInit {
       degree: 'Masters in Computer Science',
       location: 'Kansas, MO',
       startDate: 'January 2023',
-      endDate: 'Present',
+      endDate: 'May 2023',
     },
     {
       institution: 'Vellore Institute of Technology',
@@ -224,6 +224,13 @@ export class DashboardComponent implements OnInit {
       message: ['', Validators.required],
     });
   }
+
+  // scrollToSection(sectionId: string) {
+  //   const section = document.getElementById(sectionId);
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // }
 
   ngOnInit(): void {
     // Check if the zoom level is greater than or equal to 150% initially
