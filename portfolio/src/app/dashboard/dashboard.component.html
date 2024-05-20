@@ -10,11 +10,43 @@
         <button class="darkmode" (click)="toggleDarkTheme($event)">
             <img src="assets/{{ isDarkTheme ? 'sun2.svg' : 'moon1.svg' }}" alt="theme-icon">
         </button>
-
     </div>
+    <button class="sidebar-button" (click)="toggleSidebar()" *ngIf="showSidebarToggle">
+        <img src="assets/{{ isSidebarOpen ? 'cross.svg' : 'navigation.svg' }}" alt="theme-icon">
+    </button>
 
-    <button class="sidebar-button" (click)="toggleSidebar()" *ngIf="showSidebarToggle"><img
-            src="assets/{{ isSidebarOpen ? 'cross.svg' : 'navigation.svg' }}" alt="theme-icon"></button>
+    <!-- Sidebar -->
+    <div class="sidebar" [ngClass]="{'sidebar-open': isSidebarOpen}">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="sidebar-link menu-link" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a class="sidebar-link menu-link" data-section="work">
+                <i class="fas fa-briefcase"></i>
+                <span>Work Experience</span>
+            </a>
+            <a class="sidebar-link menu-link" data-section="education">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Education</span>
+            </a>
+            <a class="sidebar-link menu-link" data-section="projects">
+                <i class="fas fa-project-diagram"></i>
+                <span>Projects</span>
+            </a>
+            <a class="sidebar-link menu-link" data-section="skills">
+                <i class="fas fa-tools"></i>
+                <span>Skills</span>
+            </a>
+            <a class="sidebar-link menu-link" data-section="contact">
+                <i class="fas fa-tools"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+    </div>
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">
         <div class="intro-content">
@@ -39,7 +71,7 @@
     </section>
 
     <section id="work" class="work-section">
-        <h2>Work <span class="last-name">Experience</span></h2>
+        <h2>Work Experience</h2>
         <div class="work-split-container">
             <div class="work-list">
                 <ul>
@@ -89,11 +121,10 @@
         <h2 class="section-title">Projects</h2>
         <div class="project-grid">
             <div class="project-card" *ngFor="let project of companyProjectsData">
-                <div class="project-image">
-                    <!-- <img src="{{ project.imageUrl }}" alt="{{ project.title }}"> -->
+                <div class="project-header">
+                    <h3 class="project-title">{{ project.title }}</h3>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">{{ project.title }}</h3>
                     <p class="project-description">{{ project.description }}</p>
                     <div class="project-technologies">
                         <span *ngFor="let technology of project.technologies" class="technology-badge">{{ technology
@@ -104,22 +135,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <section id="skills" class="skills-section">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category" *ngFor="let category of skillsData">
-                <h3 class="skills-headings">{{ category.category }}</h3>
-                <div class="skills-box">
-                    <div class="skill-item" *ngFor="let item of category.items">
-                        <img [src]="'assets/skill-icons/' + item.name.toLowerCase() + '.svg'"
-                                    alt="{{ item.name }}" class="skill-icon">
-                        <span>{{ item.name }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <section id="skills" class="skills-section">
         <h2 class="section-title">Skills</h2>
@@ -144,61 +159,7 @@
         </div>
     </section>
 
-    <!-- <section id="contact" class="contact-section">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-split-container">
-            <div class="contact-details">
-                <div class="details-description">
-                    <div class="contact-text">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email:</span>
-                    </div>
-                    <span>example@email.com</span>
-                </div>
-                <div class="details-description">
-                    <div class="contact-text">
-                        <i class="fas fa-phone"></i>
-                        <span>Phone:</span>
-                    </div>
-                    <span>+1 (123) 456-7890</span>
-                </div>
-                <div class="details-description">
-                    <div class="contact-text">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Address:</span>
-                    </div>
-                    <span>123 Main Street, City, State, Country</span>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form>
-                    <div class="name-email-group">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section">
         <h2 class="section-title">Contact Me</h2>
         <div class="contact-split-container">
             <div class="contact-details">
@@ -251,91 +212,6 @@
                 </form>
             </div>
         </div>
-    </section> -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-split-container">
-          <div class="contact-details">
-            <div class="details-description" *ngFor="let contact of contactDetails">
-              <div class="contact-icon">
-                <i class="material-icons">{{ contact.icon }}</i>
-              </div>
-              <div class="contact-text">
-                <span class="contact-label">{{ contact.text }}:</span>
-                <span class="contact-value">{{ contact.detail }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="contact-form">
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-              <div class="name-email-group">
-                <div class="form-group">
-                  <label for="name">Name<span class="required">*</span></label>
-                  <input type="text" id="name" formControlName="name" required>
-                  <div *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)">
-                    <span class="error-message">Name is required.</span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email<span class="required">*</span></label>
-                  <input type="email" id="email" formControlName="email" required>
-                  <div *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)">
-                    <span class="error-message">Email is required.</span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" formControlName="subject">
-              </div>
-              <div class="form-group">
-                <label for="message">Message<span class="required">*</span></label>
-                <textarea style="resize: none" id="message" formControlName="message" rows="4" required></textarea>
-                <div *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
-                  <span class="error-message">Message is required.</span>
-                </div>
-              </div>
-              <div class="button-class">
-                <button type="submit" [disabled]="contactForm.invalid">Send</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-      
-</div>
+    </section>
 
-<div class="sidebar" [ngClass]="{'sidebar-open': isSidebarOpen}">
-    <div class="sidebar-header">
-        <h3>Menu</h3>
-        <!-- <button class="sidebar-close" (click)="toggleSidebar()">
-        <i class="fas fa-times"></i>
-      </button> -->
-    </div>
-    <nav class="sidebar-nav">
-        <a class="sidebar-link menu-link" data-section="dashboard">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a class="sidebar-link menu-link" data-section="work">
-            <i class="fas fa-briefcase"></i>
-            <span>Work Experience</span>
-        </a>
-        <a class="sidebar-link menu-link" data-section="education">
-            <i class="fas fa-graduation-cap"></i>
-            <span>Education</span>
-        </a>
-        <a class="sidebar-link menu-link" data-section="projects">
-            <i class="fas fa-project-diagram"></i>
-            <span>Projects</span>
-        </a>
-        <a class="sidebar-link menu-link" data-section="skills">
-            <i class="fas fa-tools"></i>
-            <span>Skills</span>
-        </a>
-        <a class="sidebar-link menu-link" data-section="contact">
-            <i class="fas fa-tools"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
 </div>
