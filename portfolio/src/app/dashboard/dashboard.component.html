@@ -2,16 +2,31 @@
     <!-- Top Menu Bar -->
     <div class="navbar">
         <a class="menu-link" data-section="dashboard">Home</a>
-        <a class="menu-link" data-section="work">Work Experience</a>
+        <a class="menu-link" data-section="work">Experience</a>
         <a class="menu-link" data-section="education">Education</a>
         <a class="menu-link" data-section="projects">Projects</a>
         <a class="menu-link" data-section="skills">Skills</a>
         <a class="menu-link" data-section="contact">Contact</a>
         <button class="darkmode" (click)="toggleDarkTheme($event)">
-            <img src="assets/{{ isDarkTheme ? 'sun2.svg' : 'moon1.svg' }}" alt="theme-icon">
+            <svg class="dark-mode-icon" viewBox="0 0 24 24">
+                <path *ngIf="isDarkTheme; else sunIcon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                <ng-template #sunIcon>
+                    <circle cx="12" cy="12" r="5" fill="currentColor" />
+                    <g>
+                        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" />
+                        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+                        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" />
+                        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+                    </g>
+                </ng-template>
+            </svg>
         </button>
     </div>
-
+    
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">
         <div class="intro-content">
@@ -36,7 +51,7 @@
     </section>
 
     <section id="work" class="work-section">
-        <h2>Work Experience</h2>
+        <h2>Experience</h2>
         <div class="work-split-container">
             <div class="work-list">
                 <ul>
