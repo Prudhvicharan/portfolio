@@ -1,6 +1,6 @@
 <div class="dashboard" [ngClass]="{'dark-theme': isDarkTheme}">
     <!-- Top Menu Bar -->
-    
+
     <div class="navbar">
         <a class="menu-link" data-section="dashboard">Home</a>
         <a class="menu-link" data-section="work">Experience</a>
@@ -10,9 +10,9 @@
         <a class="menu-link" data-section="contact">Contact</a>
         <button class="darkmode" (click)="toggleDarkTheme($event)">
             <i class="fa-solid" [ngClass]="isDarkTheme ? 'fa-sun' : 'fa-moon'"></i>
-          </button>          
-      </div>
-      
+        </button>
+    </div>
+
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">
         <div class="intro-content">
