@@ -35,16 +35,26 @@ html {
         background-color: var(--primary-dark);
         color: var(--text-dark-primary);
 
-        .intro-text {
-            h1 .name {
-                color: var(--last-name);
-            }
+        .intro-content {
+            .intro-text {
+                h1 {
+                    .name {
+                        color: var(--secondary-light); /* Update color for dark theme */
+                    }
+                }
 
-            .social-icons .social-icon {
-                color: var(--text-dark-primary);
+                p {
+                    color: var(--text-dark-primary);
+                }
 
-                &:hover {
-                    color: var(--last-name);
+                .social-icons {
+                    .social-icon {
+                        color: var(--text-dark-primary);
+
+                        &:hover {
+                            color: var(--last-name);
+                        }
+                    }
                 }
             }
         }
@@ -101,6 +111,19 @@ html {
                 .card-icon {
                     background-color: var(--quinary-dark);
                     color: var(--text-dark-primary);
+                }
+
+                .card-content {
+                    .institution {
+                        color: var(--secondary-dark);
+                    }
+    
+                    .degree,
+                    .location,
+                    .date-range,
+                    .gpa {
+                        color: var(--text-color);
+                    }
                 }
 
                 .card-connector {
@@ -528,7 +551,7 @@ html {
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 30px;
-            text-align: justify;
+            text-align: left;
             color: var(--text-color);
 
             p {
@@ -950,7 +973,7 @@ html {
                     input,
                     textarea {
                         width: 100%;
-                        padding: 10px;
+                        padding: 10px 0px;
                         border: 1px solid var(--secondary-dark);
                         border-radius: 4px;
                         background-color: var(--primary-light);
@@ -975,8 +998,12 @@ html {
 
                 .button-class {
                     text-align: center;
-
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
                     button[type="submit"] {
+                        width: 100%;
+                        max-width: 600px;
                         padding: 10px 20px;
                         background-color: var(--primary-dark);
                         color: var(--primary-light);
@@ -1122,6 +1149,7 @@ html {
             .work-details {
                 flex: 0 0 100%;
                 max-width: 100%;
+                text-align: left;
             }
         }
     }
@@ -1247,19 +1275,19 @@ html {
 }
 
 .mat-mdc-snack-bar-container .mdc-snackbar__surface {
-    background-color: var(--primary-light) !important;
+    background-color: var(--primary-dark) !important;
 }
 
 .mat-mdc-snack-bar-container .mdc-snackbar__label {
-    color: var(--text-light-primary) !important;
+    color: var(--text-dark-primary) !important;
 
 }
 
 .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
-    color: var(--text-light-primary) !important;
+    color: var(--text-dark-primary) !important;
     --mat-mdc-button-persistent-ripple-color: var(--text-light-primary) !important;
 }
 
 .mat-mdc-snack-bar-container .mdc-snackbar__surface {
-    border-radius: var(--primary-light) !important;
+    border-radius: var(--primary-dark) !important;
 }
