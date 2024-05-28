@@ -281,77 +281,6 @@ html {
     }
 }
 
-// .intro-section {
-//     background-color: var(--primary-light);
-//     color: var(--text-light-primary);
-//     text-align: center;
-//     padding: 72px 20px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     .intro-content {
-//       display: flex;
-//       flex-wrap: wrap;
-//       justify-content: center;
-//       align-items: center;
-//       max-width: 1200px;
-//       margin: 0 auto; // Center the content horizontally
-
-//       .intro-text {
-//         // flex: 1 1 50%;
-//         // max-width: 600px;
-//         padding-right: 100px;
-//         text-align: left;
-
-//         h1 {
-//           font-size: 3vw;
-//           font-weight: bold;
-//           margin-bottom: 10px;
-
-//           .name {
-//             color: var(--secondary-dark);
-//           }
-//         }
-
-//         p {
-//           font-size: 1.5vw;
-//           margin-bottom: 20px;
-//         }
-
-//         .social-icons {
-//           margin-top: 20px;
-
-//           .social-icon {
-//             display: inline-block;
-//             margin-right: 15px;
-//             font-size: 2vw;
-//             color: var(--text-light-primary);
-//             transition: color 0.3s ease;
-
-//             &:hover {
-//               color: var(--last-name);
-//             }
-//           }
-//         }
-//       }
-
-//       .intro-photo {
-//         flex: 0 0 350px;
-//         max-width: 350px;
-
-//         img {
-//           width: 100%;
-//           height: auto;
-//           object-fit: cover;
-//           border-radius: 50%;
-//           animation: pulse 2s infinite;
-//           box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-//         }
-//       }
-//     }
-//   }
-
 .intro-section {
     background-color: var(--primary-light);
     color: var(--text-light-primary);
@@ -985,25 +914,25 @@ html {
         .contact-details {
             flex: 0 0 40%;
             max-width: 500px;
-
-            .details-description {
-                display: flex;
-                align-items: center;
-                margin-bottom: 20px;
-
-                .contact-icon {
-                    margin-right: 10px;
-                    font-size: 24px;
+          
+            .details-item {
+              display: flex;
+              align-items: center;
+              margin-bottom: 20px;
+          
+              .details-icon-container {
+                margin-right: 10px;
+                font-size: 24px;
+              }
+          
+              .details-info {
+                .details-label {
+                  font-weight: bold;
                 }
-
-                .contact-text {
-                    .contact-label {
-                        font-weight: bold;
-                    }
-                }
+              }
             }
-        }
-
+          }
+          
         .contact-form {
             flex: 0 0 50%;
             max-width: 600px;
@@ -1094,8 +1023,8 @@ html {
             .contact-form {
                 form {
                     .name-email-group {
-                        flex-direction: column;
-                        gap: 10px;
+                        flex-direction: row;
+                        gap: 30px;
                     }
                 }
             }
@@ -1134,7 +1063,7 @@ html {
 
         .menu-link {
             margin: 5px 5px;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .darkmode {
@@ -1147,41 +1076,6 @@ html {
             }
         }
     }
-
-    // .intro-section {
-    //     padding: 72px 20px;
-
-    //     .intro-content {
-    //       flex-direction: column;
-    //       align-items: center;
-
-    //       .intro-text {
-    //         text-align: center;
-    //         max-width: 100%;
-    //         padding-right: 0;
-    //         margin-bottom: 30px;
-
-    //         h1 {
-    //           font-size: 6vw;
-    //         }
-
-    //         p {
-    //           font-size: 4vw;
-    //         }
-
-    //         .social-icons {
-    //           .social-icon {
-    //             font-size: 4vw;
-    //           }
-    //         }
-    //       }
-
-    //       .intro-photo {
-    //         flex: 0 0 250px;
-    //         max-width: 250px;
-    //       }
-    //     }
-    //   }
 
     .intro-section {
         .intro-content {
@@ -1312,7 +1206,7 @@ html {
             .contact-details,
             .contact-form {
                 flex: 1 1 auto;
-                max-width: 100%;
+                max-width: 95%;
             }
         }
 
@@ -1335,7 +1229,7 @@ html {
         .contact-form {
             form {
                 .name-email-group {
-                    flex-direction: column;
+                    flex-direction: row;
                     gap: 10px;
                 }
             }

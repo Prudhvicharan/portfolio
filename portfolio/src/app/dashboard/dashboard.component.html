@@ -129,16 +129,17 @@
         <h2 class="section-title">Contact Me</h2>
         <div class="contact-split-container">
             <div class="contact-details">
-                <div class="details-description" *ngFor="let contact of contactDetails">
-                    <div class="contact-icon">
-                        <i class="material-icons">{{ contact.icon }}</i>
-                    </div>
-                    <div class="contact-text">
-                        <span class="contact-label">{{ contact.text }}:</span>
-                        <span class="contact-value">{{ contact.detail }}</span>
-                    </div>
+                <div class="details-item" *ngFor="let contact of contactDetails">
+                  <div class="details-icon-container">
+                    <i class="material-icons">{{ contact.icon }}</i>
+                  </div>
+                  <div class="details-info">
+                    <span class="details-label">{{ contact.text }}:</span>
+                    <span class="details-value">{{ contact.detail }}</span>
+                  </div>
                 </div>
-            </div>
+              </div>
+              
             <div class="contact-form">
                 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                     <div class="name-email-group">
