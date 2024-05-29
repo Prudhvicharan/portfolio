@@ -20,6 +20,7 @@ interface Project {
   description: string;
   technologies: string[];
   highlights: string[];
+  showHighlights?: boolean;
 }
 
 interface Skill {
@@ -87,12 +88,18 @@ export class DashboardComponent implements OnInit {
   companyProjectsData: Project[] = [
     {
       title: 'HILIT, HICOD, CAPEI',
-      description: 'Company projects using Angular and Typescript frameworks.',
-      technologies: ['Angular', 'Typescript'],
+      description: 'Company projects using Angular and TypeScript frameworks.',
+      technologies: ['Angular', 'TypeScript'],
       highlights: [
-        'Developed UI screens based on client requirements',
-        'API integrations',
+        'Developed and maintained user interfaces for MedDRA Dictionary and WHO Dictionary, replicating Argus Dictionaries with a new UI.',
+        'Created Admin MedDRA screen to read and upgrade new version MedDRA files, implementing file uploading functionality.',
+        'Designed Admin Synonyms Screen for adding new synonyms.',
+        'Redesigned the CSI homepage and Global Variables UI screens based on new wireframes.',
+        'Refactored the navigation microfrontend, used across all company projects, ensuring improved efficiency and consistency.',
+        'Developed the SDTM screen with dynamically populated sections and tables based on API responses.',
+        'Resolved assigned bugs within deadlines.',
       ],
+      showHighlights: false,
     },
     {
       title: 'Income Classification Using Adult Census Data',
@@ -103,9 +110,10 @@ export class DashboardComponent implements OnInit {
         'Classification models',
       ],
       highlights: [
-        'Investigated demographic data',
-        'Created accurate classification models',
+        'Investigated demographic data.',
+        'Created accurate classification models.',
       ],
+      showHighlights: false,
     },
     {
       title: 'Hospital Management System',
@@ -117,9 +125,10 @@ export class DashboardComponent implements OnInit {
         'User interface design',
       ],
       highlights: [
-        'Developed features for admins, doctors, and patients',
-        'Implemented specialized contact page',
+        'Developed features for admins, doctors, and patients.',
+        'Implemented specialized contact page.',
       ],
+      showHighlights: false,
     },
     {
       title: 'Preventing Websites from SQL Injections',
@@ -130,11 +139,13 @@ export class DashboardComponent implements OnInit {
         'Database protection',
       ],
       highlights: [
-        'Designed text-based and pin-based login pages',
-        'Prevented SQL injections in login and e-commerce website',
+        'Designed text-based and pin-based login pages.',
+        'Prevented SQL injections in login and e-commerce website.',
       ],
+      showHighlights: false,
     },
   ];
+  selectedProject: Project | null = null;
   skillsData: Category[] = [
     {
       category: 'Languages',
@@ -225,13 +236,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // scrollToSection(sectionId: string) {
-  //   const section = document.getElementById(sectionId);
-  //   if (section) {
-  //     section.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // }
-
   ngOnInit(): void {
     // Check if the zoom level is greater than or equal to 150% initially
     this.checkZoomLevel();
@@ -280,6 +284,17 @@ export class DashboardComponent implements OnInit {
     console.log('work', work);
     this.workDetails = work.details;
     this.selectedCard = i;
+  }
+
+  showProjectDetails(project: Project) {
+    this.selectedProject = project;
+  }
+
+  closeProjectDetails(event?: MouseEvent) {
+    if (event) {
+      event.stopPropagation();
+    }
+    this.selectedProject = null;
   }
 
   onSubmit() {

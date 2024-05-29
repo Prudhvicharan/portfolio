@@ -88,19 +88,39 @@
         <div class="project-grid">
             <div class="project-card" *ngFor="let project of companyProjectsData">
                 <div class="project-header">
-                    <h3 class="project-title">{{ project.title }}</h3>
+                  <h3 class="project-title">{{ project.title }}</h3>
                 </div>
                 <div class="project-content">
-                    <p class="project-description">{{ project.description }}</p>
-                    <div class="project-technologies">
-                        <span *ngFor="let technology of project.technologies" class="technology-badge">{{ technology
-                            }}</span>
-                    </div>
-                    <a href="#" class="project-link">View Project</a>
+                  <p class="project-description">{{ project.description }}</p>
+                  <div class="project-technologies">
+                    <span *ngFor="let technology of project.technologies" class="technology-badge">{{ technology }}</span>
+                  </div>
                 </div>
-            </div>
+                <div class="project-actions">
+                  <button class="view-details-btn" (click)="showProjectDetails(project)">View More Details</button>
+                </div>
+              </div>
+              
         </div>
+
+        <!-- Modal or Popup -->
+        <div class="project-details-modal" *ngIf="selectedProject" (click)="closeProjectDetails($event)">
+            <div class="modal-content" (click)="$event.stopPropagation()">
+              <span class="close-btn" (click)="closeProjectDetails()">&times;</span>
+              <div class="modal-header">
+                <h3>Highlights</h3>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <li *ngFor="let highlight of selectedProject.highlights">{{ highlight }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
     </section>
+
 
     <section id="skills" class="skills-section">
         <h2 class="section-title">Skills</h2>
@@ -130,16 +150,16 @@
         <div class="contact-split-container">
             <div class="contact-details">
                 <div class="details-item" *ngFor="let contact of contactDetails">
-                  <div class="details-icon-container">
-                    <i class="material-icons">{{ contact.icon }}</i>
-                  </div>
-                  <div class="details-info">
-                    <span class="details-label">{{ contact.text }}:</span>
-                    <span class="details-value">{{ contact.detail }}</span>
-                  </div>
+                    <div class="details-icon-container">
+                        <i class="material-icons">{{ contact.icon }}</i>
+                    </div>
+                    <div class="details-info">
+                        <span class="details-label">{{ contact.text }}:</span>
+                        <span class="details-value">{{ contact.detail }}</span>
+                    </div>
                 </div>
-              </div>
-              
+            </div>
+
             <div class="contact-form">
                 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                     <div class="name-email-group">
