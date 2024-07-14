@@ -371,10 +371,13 @@ html {
                 }
             }
 
-            p {
+            .typing-text {
                 font-size: 28px;
-                margin-bottom: 20px;
-                margin-top: 20px;
+                padding: 10px 0px;
+                overflow: hidden;
+                white-space: nowrap;
+                animation: typing 5s infinite;
+                // border-right: 2px solid var(--text-light-primary);
             }
 
             .social-icons {
@@ -410,6 +413,18 @@ html {
     }
 }
 
+// @keyframes typing {
+//     0% {
+//         width: 0;
+//     }
+//     50% {
+//         width: 50%;
+//     }
+//     100% {
+//         width: 0;
+//     }
+// }
+
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -423,6 +438,7 @@ html {
         transform: scale(1);
     }
 }
+
 
 // .navbar {
 //     position: sticky;

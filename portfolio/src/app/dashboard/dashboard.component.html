@@ -18,7 +18,7 @@
         <div class="intro-content">
             <div class="intro-text">
                 <h1><span class="name">Sai Prudhvi Charan Pothumsetty</span></h1>
-                <p>Frontend Developer</p>
+                <p class="typing-text">Frontend Developer</p>
                 <div class="social-icons">
                     <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"><i
                             class="fa fa-envelope"></i></a>
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="intro-photo">
-                <img src="assets/pc-pic.png" alt="Your Photo" class="photo">
+                <img [src]="isDarkTheme ? 'assets/pic-dark.png' : 'assets/pic-light.png'" alt="Your Photo" class="photo">
             </div>
         </div>
     </section>
