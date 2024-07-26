@@ -215,8 +215,12 @@
                         </div>
                     </div>
                     <div class="button-class">
-                        <button type="submit" [disabled]="contactForm.invalid">Send</button>
-                    </div>
+                        <button type="submit" [disabled]="contactForm.invalid || isLoading" (click)="onSubmit()">
+                          <span *ngIf="!isLoading">Send</span>
+                          <div *ngIf="isLoading" class="loader"></div>
+                        </button>
+                      </div>
+                      
                 </form>
             </div>
         </div>

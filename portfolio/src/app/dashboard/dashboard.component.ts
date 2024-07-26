@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit {
     {
       title: 'HILIT, HICOD, CAPEI',
       description: 'Company projects using Angular and TypeScript frameworks.',
-      technologies: ['Angular', 'TypeScript'],
+      technologies: ['Angular', 'HTML', 'SCSS', 'TypeScript'],
       highlights: [
         'Developed and maintained user interfaces for MedDRA Dictionary and WHO Dictionary, replicating Argus Dictionaries with a new UI.',
         'Created Admin MedDRA screen to read and upgrade new version MedDRA files, implementing file uploading functionality.',
@@ -154,8 +154,13 @@ export class DashboardComponent implements OnInit {
         'Database protection',
       ],
       highlights: [
-        'Designed text-based and pin-based login pages.',
-        'Prevented SQL injections in login and e-commerce website.',
+        'Created unsecured login and e-commerce pages where SQL injection vulnerabilities were demonstrated (e.g., entering queries like "1=1" to bypass authentication or "SELECT * FROM books" to retrieve all book data).',
+        'Secured the login pages and admin pages by implementing MD5 and SHA algorithms to hash passwords and prevent unauthorized access.',
+        'Validated user inputs across all pages to filter out and prevent malicious SQL queries, protecting against injection attacks.',
+        'Enhanced the security of the e-commerce page by preventing SQL injection attempts from exposing sensitive data.',
+        'Developed and integrated a secure passcode and password login system with robust protection mechanisms.',
+        'Conducted thorough testing to ensure that all SQL injection vulnerabilities were addressed and fixed.',
+        'Provided detailed documentation and best practices for securing web applications against SQL injection attacks.',
       ],
       showHighlights: false,
     },
@@ -163,34 +168,46 @@ export class DashboardComponent implements OnInit {
   selectedProject: Project | null = null;
   skillsData: Category[] = [
     {
-      category: 'Languages',
+      category: 'Programming Languages',
       items: [
-        { name: 'Python', percentage: 90 },
-        { name: 'HTML5', percentage: 85 },
         { name: 'JavaScript', percentage: 80 },
-        { name: 'TypeScript', percentage: 75 },
-        { name: 'CSS', percentage: 80 },
-        { name: 'SCSS', percentage: 75 },
+        { name: 'TypeScript', percentage: 90 },
+        { name: 'Python', percentage: 90 },
+        { name: 'SQL', percentage: 80 },
+        { name: 'HTML5', percentage: 90 },
+        { name: 'CSS', percentage: 85 },
+        { name: 'SCSS', percentage: 90 },
       ],
     },
     {
       category: 'Developer Tools',
       items: [
         { name: 'VS Code', percentage: 95 },
+        // { name: 'Git', percentage: 90 },
         { name: 'GitLab', percentage: 90 },
         { name: 'GitHub', percentage: 90 },
         { name: 'Jira', percentage: 85 },
         { name: 'Postman', percentage: 80 },
-        // { name: 'Cast', percentage: 75 },
-        { name: 'Putty', percentage: 70 },
+        // { name: 'CAST', percentage: 75 },
+        { name: 'PuTTY', percentage: 70 },
       ],
     },
     {
       category: 'Frontend Frameworks',
       items: [
-        { name: 'Angular 9', percentage: 85 },
-        { name: 'PrimeNG', percentage: 80 },
-        { name: 'Material-UI', percentage: 75 },
+        { name: 'Angular', percentage: 85 },
+        { name: 'AngularJS', percentage: 70 },
+        { name: 'Bootstrap', percentage: 80 },
+        // { name: 'Responsive Design', percentage: 80 },
+      ],
+    },
+    {
+      category: 'Backend Technologies',
+      items: [
+        { name: 'Node.js', percentage: 80 },
+        { name: 'Express.js', percentage: 70 },
+        { name: 'MySQL', percentage: 65 },
+        { name: 'MongoDB', percentage: 75 },
       ],
     },
     {
@@ -198,9 +215,18 @@ export class DashboardComponent implements OnInit {
       items: [
         { name: 'Jasmine', percentage: 80 },
         { name: 'Karma', percentage: 75 },
+        { name: 'Selenium IDE', percentage: 70 },
+      ],
+    },
+    {
+      category: 'Protocols and Formats',
+      items: [
+        { name: 'RESTful APIs', percentage: 75 },
+        { name: 'JSON', percentage: 85 },
       ],
     },
   ];
+
   workDetails: string = '';
   selectedCard: number = 0;
   selectedCardIndex: number = 0;
@@ -212,7 +238,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       text: 'Mobile',
-      detail: '+1 8167628317',
+      detail: '+1 (816) 762-8317',
       icon: 'phone',
     },
     {
@@ -226,7 +252,7 @@ export class DashboardComponent implements OnInit {
   isSidebarOpen = false;
   showSidebarToggle = false;
   activeSection: string = 'dashboard';
-
+  isLoading: boolean = false;
   constructor(
     private router: Router,
     private viewportScroller: ViewportScroller,
@@ -322,6 +348,7 @@ export class DashboardComponent implements OnInit {
 
     // Check if the form is valid
     if (this.contactForm.valid) {
+      this.isLoading = !this.isLoading; // Start loading
       console.log('Form submitted successfully:', this.contactForm.value);
       const serviceID = 'service_pc';
       const templateID = 'template_portfolio';
@@ -341,9 +368,17 @@ export class DashboardComponent implements OnInit {
           console.log('response', response);
           if (response && response.status == 200) {
             this.openSnackBar('Message Sent!', ['success-message']);
+            this.contactForm.reset();
           }
+          this.isLoading = false; // Stop loading
+        })
+        .catch((error: any) => {
+          console.error('Error sending email:', error);
+          this.openSnackBar('Error sending email, Please try again.', [
+            'error-message',
+          ]);
+          this.isLoading = false; // Stop loading
         });
-      // Here you can send the form data to your backend
     } else {
       console.log('Form is invalid. Please fill in all required fields.');
       // You can optionally display a message to the user to fill in all required fields
