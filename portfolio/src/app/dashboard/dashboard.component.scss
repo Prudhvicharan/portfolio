@@ -1573,6 +1573,7 @@ html {
   
         .icon {
           display: block; // Show icon when screen width <= 768px
+          color: var(--text-dark-primary-dark);
         }
   
         .darkmode {
