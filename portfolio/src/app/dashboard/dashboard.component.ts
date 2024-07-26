@@ -249,7 +249,6 @@ export class DashboardComponent implements OnInit {
   ];
   contactForm: FormGroup;
   durationInSeconds = 3;
-  isSidebarOpen = false;
   showSidebarToggle = false;
   activeSection: string = 'dashboard';
   isLoading: boolean = false;
@@ -317,11 +316,6 @@ export class DashboardComponent implements OnInit {
 
   toggleDarkTheme(event: Event) {
     this.isDarkTheme = !this.isDarkTheme;
-    this.toggleNavbar();
-  }
-
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
   showDetails(work: any, i: number) {

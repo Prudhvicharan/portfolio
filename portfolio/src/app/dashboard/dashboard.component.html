@@ -1,19 +1,4 @@
 <div class="dashboard" [ngClass]="{'dark-theme': isDarkTheme}">
-    <!-- Top Menu Bar -->
-
-    <!-- <div class="navbar">
-        <a class="menu-link" data-section="dashboard">Home</a>
-        <a class="menu-link" data-section="work">Experience</a>
-        <a class="menu-link" data-section="education">Education</a>
-        <a class="menu-link" data-section="projects">Projects</a>
-        <a class="menu-link" data-section="skills">Skills</a>
-        <a class="menu-link" data-section="contact">Contact</a>
-        <button class="darkmode" (click)="toggleDarkTheme($event)">
-            <i class="fa-solid" [ngClass]="isDarkTheme ? 'fa-sun' : 'fa-moon'"></i>
-        </button>
-    </div> -->
-
-
 <div class="navbar" id="myTopnav">
     <div class="navbar-container">
         <a class="menu-link" data-section="dashboard" [class.active]="isActive('dashboard')" (click)="setActive('dashboard')">Home</a>
@@ -165,66 +150,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <section id="contact" class="contact-section">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-split-container">
-            <div class="contact-details">
-                <div class="details-item" *ngFor="let contact of contactDetails">
-                    <div class="details-icon-container">
-                        <i class="material-icons">{{ contact.icon }}</i>
-                    </div>
-                    <div class="details-info">
-                        <span class="details-label">{{ contact.text }}:</span>
-                        <span class="details-value">{{ contact.detail }}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-form">
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                    <div class="name-email-group">
-                        <div class="form-group">
-                            <label for="name">Name<span class="required">*</span></label>
-                            <input type="text" id="name" formControlName="name" required>
-                            <div
-                                *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)">
-                                <span class="error-message">Name is required.</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email<span class="required">*</span></label>
-                            <input type="email" id="email" formControlName="email" required>
-                            <div
-                                *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)">
-                                <span class="error-message">Email is required.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" formControlName="subject">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message<span class="required">*</span></label>
-                        <textarea style="resize: none" id="message" formControlName="message" rows="4"
-                            required></textarea>
-                        <div
-                            *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
-                            <span class="error-message">Message is required.</span>
-                        </div>
-                    </div>
-                    <div class="button-class">
-                        <button type="submit" [disabled]="contactForm.invalid || isLoading" (click)="onSubmit()">
-                          <span *ngIf="!isLoading">Send</span>
-                          <div *ngIf="isLoading" class="loader"></div>
-                        </button>
-                      </div>
-                      
-                </form>
-            </div>
-        </div>
-    </section> -->
 
     <section id="contact" class="contact-section">
         <div class="container">
