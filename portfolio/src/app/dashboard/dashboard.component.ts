@@ -257,7 +257,7 @@ export class DashboardComponent implements OnInit {
     this.checkZoomLevel();
     // Listen for window resize events to dynamically update the zoom level
     window.addEventListener('resize', () => this.checkZoomLevel());
-    this.openSnackBar('Message Sent!', ['success-message']);
+    // this.openSnackBar('Message Sent!', ['success-message']);
   }
 
   ngAfterViewInit() {
