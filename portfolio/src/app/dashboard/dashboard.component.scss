@@ -316,26 +316,6 @@ html {
             color: var(--last-name) !important;
         }
     }
-
-    .sidebar {
-        background-color: var(--secondary-dark);
-        color: var(--text-dark-primary);
-
-        .sidebar-header {
-            background-color: var(--quinary-dark);
-            color: var(--text-dark-primary);
-        }
-
-        .sidebar-nav {
-            .sidebar-link {
-                color: var(--text-dark-primary);
-
-                &:hover {
-                    background-color: var(--quinary-dark);
-                }
-            }
-        }
-    }
 }
 
 .intro-section {
@@ -1592,10 +1572,10 @@ html {
     overflow: hidden;
   
     .navbar-container {
-      display: flex;
-      flex-grow: 1;
-      justify-content: space-around;
-      align-items: center;
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        gap: 20px;
   
       .menu-link {
         text-align: center;
@@ -1633,6 +1613,10 @@ html {
           font-size: 20px;
         }
       }
+  
+      .icon {
+        display: none; // Hidden by default
+      }
     }
   
     @media screen and (max-width: 768px) {
@@ -1642,6 +1626,8 @@ html {
       .navbar-container {
         flex-direction: column;
         width: 100%;
+        flex-grow: 1;
+        gap: 5px;
         display: none; // Hide links by default in mobile
   
         .menu-link {
@@ -1651,24 +1637,25 @@ html {
         }
       }
   
-      &.responsive {
-        .navbar-container {
-          display: flex; // Show links when responsive
-        }
-      }
-  
       .navbar-icons {
         width: 100%;
         justify-content: space-between;
   
         .icon {
-          margin-right: auto;
+          display: block; // Show icon when screen width <= 768px
         }
   
         .darkmode {
           margin-left: auto;
         }
       }
+  
+      &.responsive {
+        .navbar-container {
+          display: flex; // Show links in responsive mode
+        }
+      }
     }
   }
+  
   

@@ -16,12 +16,12 @@
 
 <div class="navbar" id="myTopnav">
     <div class="navbar-container">
-        <a class="menu-link" data-section="dashboard" [class.active]="isActive('dashboard')">Home</a>
-        <a class="menu-link" data-section="work" [class.active]="isActive('work')">Experience</a>
-        <a class="menu-link" data-section="education" [class.active]="isActive('education')">Education</a>
-        <a class="menu-link" data-section="projects" [class.active]="isActive('projects')">Projects</a>
-        <a class="menu-link" data-section="skills" [class.active]="isActive('skills')">Skills</a>
-        <a class="menu-link" data-section="contact" [class.active]="isActive('contact')">Contact</a>
+        <a class="menu-link" data-section="dashboard" [class.active]="isActive('dashboard')" (click)="setActive('dashboard')">Home</a>
+        <a class="menu-link" data-section="work" [class.active]="isActive('work')" (click)="setActive('work')">Experience</a>
+        <a class="menu-link" data-section="education" [class.active]="isActive('education')" (click)="setActive('education')">Education</a>
+        <a class="menu-link" data-section="projects" [class.active]="isActive('projects')" (click)="setActive('projects')">Projects</a>
+        <a class="menu-link" data-section="skills" [class.active]="isActive('skills')" (click)="setActive('skills')">Skills</a>
+        <a class="menu-link" data-section="contact" [class.active]="isActive('contact')" (click)="setActive('contact')">Contact</a>
     </div>
     <div class="navbar-icons">
         <button class="icon" (click)="toggleNavbar()">
@@ -32,6 +32,7 @@
         </button>
     </div>
 </div>
+
 
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">

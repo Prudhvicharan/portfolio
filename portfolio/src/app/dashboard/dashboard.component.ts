@@ -291,6 +291,7 @@ export class DashboardComponent implements OnInit {
 
   toggleDarkTheme(event: Event) {
     this.isDarkTheme = !this.isDarkTheme;
+    this.toggleNavbar();
   }
 
   toggleSidebar() {
@@ -358,16 +359,25 @@ export class DashboardComponent implements OnInit {
   }
 
   isActive(section: string): boolean {
-    // this.activeSection = section;
-    this.toggleNavbar();
     return this.activeSection === section;
   }
-  toggleNavbar() {
+
+  setActive(section: string): void {
+    this.activeSection = section;
+    this.closeNavbar();
+  }
+
+  toggleNavbar(): void {
     const navbar = document.getElementById('myTopnav') as HTMLElement;
     if (navbar.className.includes('responsive')) {
       navbar.className = navbar.className.replace(' responsive', '');
     } else {
       navbar.className += ' responsive';
     }
+  }
+
+  closeNavbar(): void {
+    const navbar = document.getElementById('myTopnav') as HTMLElement;
+    navbar.className = navbar.className.replace(' responsive', '');
   }
 }
