@@ -71,6 +71,7 @@ export class DashboardComponent implements OnInit {
     {
       institution: 'University of Missouri Kansas City',
       degree: 'Masters in Computer Science',
+      gpa: 3.8,
       location: 'Kansas, MO',
       startDate: 'January 2023',
       endDate: 'May 2024',
@@ -206,17 +207,17 @@ export class DashboardComponent implements OnInit {
   contactDetails = [
     {
       text: 'Address',
-      detail: '3560 Broadway Blvd, Kansas City',
+      detail: 'Kansas City, MO',
       icon: 'map',
     },
     {
-      text: 'Phone Number',
+      text: 'Mobile',
       detail: '+1 8167628317',
       icon: 'phone',
     },
     {
       text: 'Mail',
-      detail: 'bunnycharanprudhvi@gmail.com',
+      detail: 'prudhvicharan43@gmail.com',
       icon: 'mail',
     },
   ];
@@ -224,6 +225,7 @@ export class DashboardComponent implements OnInit {
   durationInSeconds = 3;
   isSidebarOpen = false;
   showSidebarToggle = false;
+  activeSection: string = 'dashboard';
 
   constructor(
     private router: Router,
@@ -255,6 +257,7 @@ export class DashboardComponent implements OnInit {
     this.checkZoomLevel();
     // Listen for window resize events to dynamically update the zoom level
     window.addEventListener('resize', () => this.checkZoomLevel());
+    this.openSnackBar('Message Sent!', ['success-message']);
   }
 
   ngAfterViewInit() {
@@ -335,7 +338,7 @@ export class DashboardComponent implements OnInit {
         })
         .then((response: any) => {
           console.log('response', response);
-          if (response && response == '200 OK') {
+          if (response && response.status == 200) {
             this.openSnackBar('Message Sent!', ['success-message']);
           }
         });
@@ -347,9 +350,24 @@ export class DashboardComponent implements OnInit {
   }
 
   openSnackBar(message: string, panelClass: string[]) {
+    console.log('message', message);
     this._snackBar.open(message, 'Close', {
-      duration: this.durationInSeconds * 100000,
+      // duration: this.durationInSeconds * 30000,
       panelClass: ['custom-snackbar'], // Apply the custom CSS classes here
     });
+  }
+
+  isActive(section: string): boolean {
+    // this.activeSection = section;
+    this.toggleNavbar();
+    return this.activeSection === section;
+  }
+  toggleNavbar() {
+    const navbar = document.getElementById('myTopnav') as HTMLElement;
+    if (navbar.className.includes('responsive')) {
+      navbar.className = navbar.className.replace(' responsive', '');
+    } else {
+      navbar.className += ' responsive';
+    }
   }
 }

@@ -1,7 +1,7 @@
 <div class="dashboard" [ngClass]="{'dark-theme': isDarkTheme}">
     <!-- Top Menu Bar -->
 
-    <div class="navbar">
+    <!-- <div class="navbar">
         <a class="menu-link" data-section="dashboard">Home</a>
         <a class="menu-link" data-section="work">Experience</a>
         <a class="menu-link" data-section="education">Education</a>
@@ -11,14 +11,34 @@
         <button class="darkmode" (click)="toggleDarkTheme($event)">
             <i class="fa-solid" [ngClass]="isDarkTheme ? 'fa-sun' : 'fa-moon'"></i>
         </button>
+    </div> -->
+
+
+<div class="navbar" id="myTopnav">
+    <div class="navbar-container">
+        <a class="menu-link" data-section="dashboard" [class.active]="isActive('dashboard')">Home</a>
+        <a class="menu-link" data-section="work" [class.active]="isActive('work')">Experience</a>
+        <a class="menu-link" data-section="education" [class.active]="isActive('education')">Education</a>
+        <a class="menu-link" data-section="projects" [class.active]="isActive('projects')">Projects</a>
+        <a class="menu-link" data-section="skills" [class.active]="isActive('skills')">Skills</a>
+        <a class="menu-link" data-section="contact" [class.active]="isActive('contact')">Contact</a>
     </div>
+    <div class="navbar-icons">
+        <button class="icon" (click)="toggleNavbar()">
+            <i class="fa fa-bars"></i>
+        </button>
+        <button class="darkmode" (click)="toggleDarkTheme($event)">
+            <i class="fa-solid" [ngClass]="isDarkTheme ? 'fa-sun' : 'fa-moon'"></i>
+        </button>
+    </div>
+</div>
 
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">
         <div class="intro-content">
             <div class="intro-text">
                 <h1><span class="name">Sai Prudhvi Charan Pothumsetty</span></h1>
-                <p class="typing-text">Frontend Developer</p>
+                <p class="typing-text">Full Stack Developer</p>
                 <div class="social-icons">
                     <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"><i
                             class="fa fa-envelope"></i></a>
