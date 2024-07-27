@@ -24,7 +24,7 @@ html {
 
         }
 
-        .darkmode {
+        .icon, .darkmode {
             background-color: var(--quinary-dark);
             border: 1px solid var(--quinary-dark);
 
@@ -1573,7 +1573,7 @@ html {
   
         .icon {
           display: block; // Show icon when screen width <= 768px
-          color: var(--text-dark-primary-dark);
+          color: var(--secondary-dark);
         }
   
         .darkmode {
