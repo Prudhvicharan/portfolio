@@ -172,33 +172,33 @@ body {
 //   --text-light-accent: #FFD700; /* Gold */
 // }
 
-// :root {
-//   /* Dark theme */
-//   --primary-dark: #0F0F0F;
-//   --secondary-dark: #1D1D1D;
-//   --tertiary-dark: #2C2C2C;
-//   --quaternary-dark: #880808;
-//   --quinary-dark: #AA4A44;
+:root {
+  /* Dark theme */
+  --primary-dark: #0F0F0F;
+  --secondary-dark: #1D1D1D;
+  --tertiary-dark: #2C2C2C;
+  --quaternary-dark: #880808;
+  --quinary-dark: #AA4A44;
 
-//   /* Light theme */
-//   --primary-light: #F7F7F7;
-//   --secondary-light: #E8E8E8;
-//   --tertiary-light: #D3D3D3;
-//   --quaternary-light: #E60000;
-//   --quinary-light: #FF6666;
+  /* Light theme */
+  --primary-light: #F7F7F7;
+  --secondary-light: #E8E8E8;
+  --tertiary-light: #D3D3D3;
+  --quaternary-light: #E60000;
+  --quinary-light: #FF6666;
 
-//   /* Text colors for dark theme */
-//   --text-dark-primary: #FFFFFF;
-//   --text-dark-secondary: #F0F0F0;
-//   --text-dark-tertiary: #E0E0E0;
-//   --text-dark-accent: #AA4A44;
+  /* Text colors for dark theme */
+  --text-dark-primary: #FFFFFF;
+  --text-dark-secondary: #F0F0F0;
+  --text-dark-tertiary: #E0E0E0;
+  --text-dark-accent: #AA4A44;
 
-//   /* Text colors for light theme */
-//   --text-light-primary: #0F0F0F;
-//   --text-light-secondary: #1D1D1D;
-//   --text-light-tertiary: #2C2C2C;
-//   --text-light-accent: #880808;
-// }
+  /* Text colors for light theme */
+  --text-light-primary: #0F0F0F;
+  --text-light-secondary: #1D1D1D;
+  --text-light-tertiary: #2C2C2C;
+  --text-light-accent: #880808;
+}
 
 // :root {
 //   --primary-dark: #1A2332;
@@ -245,42 +245,42 @@ body {
 //   --text-light-accent: #F2C94C;
 // }
 
-:root {
-  /* Light Theme Colors */
-  --primary-light: #FAFAFA;
-  --secondary-light: #F0F0F0;
-  --tertiary-light: #E5E5E5;
-  --quaternary-light: #D4D4D4;
-  --quinary-light: #CCCCCC;
+// :root {
+//   /* Light Theme Colors */
+//   --primary-light: #FAFAFA;
+//   --secondary-light: #F0F0F0;
+//   --tertiary-light: #E5E5E5;
+//   --quaternary-light: #D4D4D4;
+//   --quinary-light: #CCCCCC;
 
-  --text-light-primary: #212121;
-  --text-light-secondary: #424242;
-  --text-light-tertiary: #616161;
-  --text-light-accent: #FF7043;
+//   --text-light-primary: #212121;
+//   --text-light-secondary: #424242;
+//   --text-light-tertiary: #616161;
+//   --text-light-accent: #FF7043;
 
-  /* Dark Theme Colors */
-  // --primary-dark: #121212;
-  // --secondary-dark: #1F1F1F;
-  // --tertiary-dark: #292929;
-  // --quaternary-dark: #333333;
-  // --quinary-dark: #424242;
+//   /* Dark Theme Colors */
+//   // --primary-dark: #121212;
+//   // --secondary-dark: #1F1F1F;
+//   // --tertiary-dark: #292929;
+//   // --quaternary-dark: #333333;
+//   // --quinary-dark: #424242;
 
-  // --text-dark-primary: #E0E0E0;
-  // --text-dark-secondary: #BDBDBD;
-  // --text-dark-tertiary: #9E9E9E;
-  // --text-dark-accent: #FF9800;
+//   // --text-dark-primary: #E0E0E0;
+//   // --text-dark-secondary: #BDBDBD;
+//   // --text-dark-tertiary: #9E9E9E;
+//   // --text-dark-accent: #FF9800;
 
-  // /* Accent Color */
-  // --accent-pink: #FF4081;
-  // --accent-teal: #00BCD4;
+//   // /* Accent Color */
+//   // --accent-pink: #FF4081;
+//   // --accent-teal: #00BCD4;
 
-  --primary-dark: #121212; /* Deep Black */
---secondary-dark: #1E1E1E; /* Dark Charcoal */
---tertiary-dark: #2C2C2C; /* Medium Charcoal */
---quaternary-dark: #383838; /* Lighter Charcoal */
---quinary-dark: #4A4A4A; /* Dark Gray for Borders */
---text-dark-primary: #FFFFFF; /* Pure White */
---text-dark-secondary: #E0E0E0; /* Light Gray */
---text-dark-tertiary: #BDBDBD; /* Medium Gray */
---text-dark-accent: #FFB300; /* Vibrant Gold Accent */
-}
+//   --primary-dark: #121212; /* Deep Black */
+// --secondary-dark: #1E1E1E; /* Dark Charcoal */
+// --tertiary-dark: #2C2C2C; /* Medium Charcoal */
+// --quaternary-dark: #383838; /* Lighter Charcoal */
+// --quinary-dark: #4A4A4A; /* Dark Gray for Borders */
+// --text-dark-primary: #FFFFFF; /* Pure White */
+// --text-dark-secondary: #E0E0E0; /* Light Gray */
+// --text-dark-tertiary: #BDBDBD; /* Medium Gray */
+// --text-dark-accent: #FFB300; /* Vibrant Gold Accent */
+// }

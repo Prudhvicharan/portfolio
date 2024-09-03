@@ -40,13 +40,14 @@ html {
   
       .navbar-container {
         .menu-link {
-          color: var(--quinary-light);
+          color: var(--text-dark-accent);
           transition: color 0.3s ease;
   
           &:hover,
           &.active {
             // color: var(--text-dark-primary);
-            color: var(--text-dark-accent);
+            // color: var(--text-dark-accent);
+            color: var(--quinary-light);
           }
   
           &.active::after, // Add an underline to the active link
@@ -85,7 +86,7 @@ html {
             .intro-text {
                 h1 {
                     .name {
-                        color: var(--secondary-light);
+                        color: var(--quinary-light);
                         /* Update color for dark theme */
                     }
                 }
@@ -157,7 +158,7 @@ html {
                 color: var(--text-dark-primary);
 
                 .card-icon {
-                    background-color: var(--quinary-dark);
+                    background-color: var(--quaternary-dark);
                     color: var(--text-dark-primary);
                 }
 
@@ -190,11 +191,12 @@ html {
             color: var(--text-dark-primary);
     
             .project-header {
-              background-color: var(--quinary-dark);
+              // background-color: var(--quinary-dark);
+              background-color: var(--quaternary-dark);
     
               .project-title {
-                // color: var(--text-dark-primary);
-                color: var(--text-dark-accent);
+                // color: var(--quaternary-dark);
+                color: var(--text-dark-primary);
               }
             }
     
@@ -213,10 +215,10 @@ html {
     
             .project-actions {
               .view-details-btn {
-                // background-color: var(--quinary-dark);
-                // color: var(--text-dark-primary);
-                background-color: var(--text-dark-accent);
-                color: var(--primary-dark);
+                background-color: var(--quaternary-dark);
+                color: var(--text-dark-primary);
+                // background-color: var(--text-dark-accent);
+                // color: var(--primary-dark);
                 &:hover {
                   background-color: var(--quaternary-dark);
                 }
@@ -239,7 +241,7 @@ html {
             }
     
             .modal-header {
-              background-color: var(--quinary-dark);
+              background-color: var(--quaternary-dark);
     
               h3 {
                 color: var(--text-dark-primary);
@@ -302,7 +304,8 @@ html {
         }
     
         .contact-info {
-            background: linear-gradient(90deg, var(--primary-dark), var(--tertiary-dark));
+            // background: linear-gradient(90deg, var(--primary-dark), var(--tertiary-dark));
+            background: var(--quaternary-dark);
     
           h3, p {
             color: var(--text-dark-primary);
