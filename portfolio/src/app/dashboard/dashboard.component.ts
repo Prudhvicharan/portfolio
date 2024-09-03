@@ -423,7 +423,7 @@ export class DashboardComponent implements OnInit {
   openSnackBar(message: string, panelClass: string[]) {
     console.log('message', message);
     this._snackBar.open(message, 'Close', {
-      duration: this.durationInSeconds * 30000,
+      duration: this.durationInSeconds * 3000,
       panelClass: ['custom-snackbar'], // Apply the custom CSS classes here
     });
   }
