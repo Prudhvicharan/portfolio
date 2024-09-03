@@ -1,5 +1,11 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, Renderer2, ElementRef, OnInit } from '@angular/core';
+import {
+  Component,
+  Renderer2,
+  ElementRef,
+  OnInit,
+  AfterViewInit,
+} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
@@ -43,7 +49,7 @@ export class DashboardComponent implements OnInit {
   isDarkTheme = false;
   workExperiences = [
     {
-      title: 'Associate Software Engineer',
+      title: 'Software Engineer',
       date: 'June 2021 – Dec 2022',
       location: 'Vitrana Bangalore, KA, India',
       details: [
@@ -55,8 +61,8 @@ export class DashboardComponent implements OnInit {
       ],
     },
     {
-      title: 'Software Intern',
-      date: 'Aug. 2020 – May 2021',
+      title: 'Associate Software Engineer',
+      date: 'Dec. 2019 – May 2021',
       location: 'Vitrana Bangalore, KA, India',
       details: [
         'Participated in intensive training programs focused on Angular, JavaScript, and TypeScript, enhancing my proficiency in these technologies.',
@@ -298,6 +304,41 @@ export class DashboardComponent implements OnInit {
         }
       });
     });
+    this.setupSectionObserver();
+  }
+
+  setupSectionObserver(): void {
+    const sections = this.el.nativeElement.querySelectorAll('section[id]');
+    const options = {
+      root: null, // Use the viewport as the root
+      rootMargin: '0px 0px -40% 0px', // Adjust the root margin
+      threshold: 0.4, // Trigger when 50% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          this.activeSection = sectionId;
+          this.updateActiveLink(sectionId);
+        }
+      });
+    }, options);
+
+    sections.forEach((section: HTMLElement) => {
+      observer.observe(section);
+    });
+  }
+
+  updateActiveLink(sectionId: string): void {
+    const menuLinks = this.el.nativeElement.querySelectorAll('.menu-link');
+    menuLinks.forEach((link: HTMLElement) => {
+      if (link.getAttribute('data-section') === sectionId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   }
 
   ngOnDestroy() {}
@@ -382,7 +423,7 @@ export class DashboardComponent implements OnInit {
   openSnackBar(message: string, panelClass: string[]) {
     console.log('message', message);
     this._snackBar.open(message, 'Close', {
-      // duration: this.durationInSeconds * 30000,
+      duration: this.durationInSeconds * 30000,
       panelClass: ['custom-snackbar'], // Apply the custom CSS classes here
     });
   }
