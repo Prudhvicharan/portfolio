@@ -24,7 +24,7 @@
         <div class="intro-content">
             <div class="intro-text">
                 <h1><span class="name">Sai Prudhvi Charan Pothumsetty</span></h1>
-                <p class="typing-text">Full Stack Developer</p>
+                <p class="typing-text">Full Stack .NET Developer</p>
                 <div class="social-icons">
                     <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"><i
                             class="fa fa-envelope"></i></a>
@@ -58,13 +58,16 @@
                 </ul>
             </div>
             <div class="work-details">
-                <div *ngFor="let work of workDetails">
-                    <p>{{ work }}</p>
-                </div>
+               <ul>
+              <li *ngFor="let work of workDetails">
+                <p>{{ work }}</p>
+              </li>
+            </ul>
             </div>
         </div>
     </section>
 
+    
     <section id="education" class="education-section">
         <h2 class="section-title">Education</h2>
         <div class="education-timeline">
@@ -136,7 +139,7 @@
                 <div class="skills-grid">
                     <div class="skill-item" *ngFor="let item of category.items">
                         <div class="skill-icon-container">
-                            <img [src]="'assets/skill-icons/' + item.name.toLowerCase() + '.svg'" alt="{{ item.name }}"
+                            <img [src]="getSkillIconPath(item.name)"
                                 class="skill-icon">
                         </div>
                         <div class="skill-info">
