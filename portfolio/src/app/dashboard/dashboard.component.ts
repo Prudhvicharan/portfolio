@@ -385,9 +385,9 @@ export class DashboardComponent implements OnInit {
     if (this.contactForm.valid) {
       this.isLoading = !this.isLoading; // Start loading
       console.log('Form submitted successfully:', this.contactForm.value);
-      const serviceID = 'service_pc';
+      const serviceID = 'service_pf';
       const templateID = 'template_portfolio';
-      const public_key = 'MHJI_yWEoHTODODNh';
+      const public_key = 'xbUKzfuh22RF4N59K';
       let params = {
         from_name: this.contactForm.value.name,
         subject: this.contactForm.value.subject,
@@ -423,7 +423,7 @@ export class DashboardComponent implements OnInit {
   openSnackBar(message: string, panelClass: string[]) {
     console.log('message', message);
     this._snackBar.open(message, 'Close', {
-      duration: this.durationInSeconds * 30000,
+      duration: this.durationInSeconds * 3000,
       panelClass: ['custom-snackbar'], // Apply the custom CSS classes here
     });
   }
