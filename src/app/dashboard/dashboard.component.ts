@@ -49,39 +49,27 @@ export class DashboardComponent implements OnInit {
   isDarkTheme = false;
   workExperiences = [
     {
-      title: 'Full Stack .Net Developer',
+      title: 'Software Engineer',
       date: 'June 2021 – Dec 2022',
       location: 'Vitrana Bangalore, KA, India',
       details: [
-        'Developed backend systems using C#.NET with object-oriented principles.',
-        'Built and tested RESTful APIs in ASP.NET Core using Swagger UI and Postman.',
-        'Enhanced app performance with Dependency Injection, Lazy Loading, and Logging.',
-        'Managed and optimized SQL Server and PostgreSQL databases.',
-        'Built full-stack web apps using .NET 6.0, ASP.NET MVC, WPF, and Angular.',
-        'Created reusable Angular components and SPAs with Angular Router.',
-        'Integrated JavaScript with Angular for dynamic user interactions.',
-        'Collaborated on VB.NET solutions aligned with business needs.',
-        'Conducted API testing and debugging with Swagger UI and Postman.',
-        'Optimized SQL queries for reporting using SQL Server Management Studio.',
-        'Improved efficiency by 80% through performance optimizations with CAST tools.',
-        'Implemented Microfrontend architecture, improving code maintainability by 40%.',
+        'Developed and maintained engaging user interfaces for multiple company projects using Angular 9 and TypeScript.',
+        'Leveraged Angular to create interactive web applications, delivering exceptional user experiences.',
+        "Drove seamless API integrations, fostering robust interactions within the microfrontend architecture, ensuring the projects' responsiveness and cohesion.",
+        'Contributed to the development process through rigorous unit testing using Jasmine and Karma, guaranteeing the reliability and stability of the applications.',
+        'Implemented performance optimization strategies using CAST tools, significantly enhancing the speed and efficiency of project execution.',
       ],
     },
     {
-      title: '.Net Developer',
+      title: 'Associate Software Engineer',
       date: 'Dec. 2019 – May 2021',
       location: 'Vitrana Bangalore, KA, India',
       details: [
-        'Developed UI screens with ASP.NET and C# in Visual Studio.NET.',
-        'Built RESTful APIs with ASP.NET Core 5.0 for data handling.',
-        'Implemented backend services and business logic in C#.',
-        'Used Entity Framework Core 5.0 for ORM and database interactions.',
-        'Built SPAs with Angular 14 and Angular Material for responsive design.',
-        'Developed dynamic UIs with HTML, CSS, JavaScript, jQuery, and Knockout JS.',
-        'Optimized SQL Server 2019 databases with indexing and query tuning.',
-        'Developed complex stored procedures for business logic.',
-        'Practiced Agile Scrum, contributing to sprint activities.',
-        'Gathered requirements and provided updates to stakeholders.',
+        'Participated in intensive training programs focused on Angular, JavaScript, and TypeScript, enhancing my proficiency in these technologies.',
+        "Successfully replicated the login and home screens for the company's flagship project, HiLIT, showcasing my ability to work with complex and critical components of the application.",
+        'Skillfully recreated the Capei form page, characterized by dynamic and data-intensive forms, demonstrating my adaptability and capacity to handle diverse tasks.',
+        'Pioneered the development of a new dashboard screen, responsible for displaying critical data not previously implemented by the company. The screen was well-received, and my lead utilized my work as a basis for design team discussions.',
+        "Collaborated closely with team members, providing valuable insights and innovative solutions, contributing to the overall project's success.",
       ],
     },
   ];
@@ -108,18 +96,7 @@ export class DashboardComponent implements OnInit {
     {
       title: 'HILIT, HICOD, CAPEI',
       description: 'Company projects using Angular and TypeScript frameworks.',
-      technologies: [
-        'VB .NET',
-        'C#',
-        'ASP .NET',
-        'Angular',
-        'HTML',
-        'SCSS',
-        'REST API',
-        'CI/ CD',
-        'Postgre SQL',
-        'TypeScript',
-      ],
+      technologies: ['Angular', 'HTML', 'SCSS', 'TypeScript'],
       highlights: [
         'Developed and maintained user interfaces for MedDRA Dictionary and WHO Dictionary, replicating Argus Dictionaries with a new UI.',
         'Created Admin MedDRA screen to read and upgrade new version MedDRA files, implementing file uploading functionality.',
@@ -233,14 +210,9 @@ export class DashboardComponent implements OnInit {
     {
       category: 'Backend Technologies',
       items: [
-        { name: 'ASP.NET', percentage: 75 },
-        { name: 'VB.NET', percentage: 80 },
-        { name: 'C#', percentage: 80 },
-        { name: '.NET Core', percentage: 70 },
         { name: 'Node.js', percentage: 80 },
         { name: 'Express.js', percentage: 70 },
         { name: 'MySQL', percentage: 65 },
-        { name: 'PostgreSQL', percentage: 75 },
         { name: 'MongoDB', percentage: 75 },
       ],
     },
@@ -331,14 +303,6 @@ export class DashboardComponent implements OnInit {
       });
     });
     this.setupSectionObserver();
-  }
-
-  getSkillIconPath(skillName: string): string {
-    // Handle specific cases where the filename differs from the skill name
-    if (skillName === 'C#') {
-      return 'assets/skill-icons/c-sharp.svg';
-    }
-    return 'assets/skill-icons/' + skillName.toLowerCase() + '.svg';
   }
 
   setupSectionObserver(): void {
