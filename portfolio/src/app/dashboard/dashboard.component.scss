@@ -1382,7 +1382,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
+  padding: 15px 7%;
   // width: 100%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -1451,7 +1451,7 @@ html {
   }
 
   @media screen and (max-width: 1024px) {
-    padding: 15px 3%;
+    padding: 15px 8%;
 
     .navbar-container {
       gap: 20px;
