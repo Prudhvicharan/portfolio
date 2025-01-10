@@ -68,14 +68,17 @@ npm run deploy
 portfolio/
 ├── src/
 │   ├── app/
-│   │   ├── components/
-│   │   ├── services/
-│   │   ├── shared/
-│   │   └── app.module.ts
 │   ├── assets/
-│   └── styles/
+│   ├── environments/
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.scss
+├── .gitignore
 ├── angular.json
-└── package.json
+├── package.json
+├── README.md
+└── tsconfig.json
+
 ```
 
 ## Key Dependencies 📚
