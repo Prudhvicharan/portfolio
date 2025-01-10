@@ -87,6 +87,38 @@ portfolio/
 - `@emailjs/browser`: ^3.x.x
 - `@fortawesome/fontawesome-free`: ^6.x.x
 
+
+## 📧 EmailJS Integration
+
+### Email Service Implementation
+
+EmailJS is used to handle form submissions and send emails directly from the client-side without a backend server. In this portfolio project, it provides a seamless way to receive messages from visitors through the contact form.
+
+#### Key Implementation Details:
+- **Library**: `@emailjs/browser`
+- **Purpose**: Send contact form submissions directly to your email
+- **Configuration**:
+  - Requires EmailJS account setup
+  - Involves creating an email template
+  - Configuring service and template IDs
+
+#### How It Works:
+1. **Form Submission**: When a user fills out the contact form, EmailJS captures the form data
+2. **Client-Side Sending**: Sends email directly from the browser
+3. **No Backend Required**: Eliminates need for server-side email handling
+4. **Secure**: Uses environment variables to protect sensitive information
+
+#### Example Implementation Snippet:
+```typescript
+sendEmail(formData: any) {
+  emailjs.send(
+    'YOUR_SERVICE_ID',   // EmailJS service ID
+    'YOUR_TEMPLATE_ID',  // Email template ID
+    formData,            // Form submission data
+    'YOUR_PUBLIC_KEY'    // EmailJS public key
+  );
+}
+```
 ## Contributing 🤝
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -98,7 +130,7 @@ portfolio/
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Contact 📫
-- Your Name - [bunnycharanprudhvi@gmail.com](mailto:bunnycharanprudhvi@gmail.com)
+- Gmail - [bunnycharanprudhvi@gmail.com](mailto:bunnycharanprudhvi@gmail.com)
 - LinkedIn: [PrudhviCharan](https://www.linkedin.com/in/prudhvi-charan/)
 - GitHub: [PrudhviCharan](https://github.com/PrudhviCharan)
 
