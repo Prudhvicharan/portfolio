@@ -4,7 +4,7 @@
 A modern and responsive personal portfolio website built with Angular, designed to showcase professional experience, technical skills, and featured projects. The site features smooth animations, Material Design components, and a fully functional contact system powered by EmailJS.
 
 ## Live Demo 🎯
-[View Portfolio](https://your-portfolio-url.com)
+[View Portfolio](https://prudhvicharan.github.io/portfolio/)
 
 ## Features ✨
 - **Responsive Design**: Seamlessly adapts to all screen sizes and devices
