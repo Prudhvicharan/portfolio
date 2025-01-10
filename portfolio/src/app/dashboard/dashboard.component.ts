@@ -284,9 +284,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Check if the zoom level is greater than or equal to 150% initially
     this.checkZoomLevel();
-    // Listen for window resize events to dynamically update the zoom level
     window.addEventListener('resize', () => this.checkZoomLevel());
     // this.openSnackBar('Message Sent!', ['success-message']);
   }
@@ -360,7 +358,6 @@ export class DashboardComponent implements OnInit {
   }
 
   showDetails(work: any, i: number) {
-    console.log('work', work);
     this.workDetails = work.details;
     this.selectedCard = i;
   }
@@ -381,10 +378,8 @@ export class DashboardComponent implements OnInit {
       control.markAsTouched();
     });
 
-    // Check if the form is valid
     if (this.contactForm.valid) {
-      this.isLoading = !this.isLoading; // Start loading
-      console.log('Form submitted successfully:', this.contactForm.value);
+      this.isLoading = !this.isLoading;
       const serviceID = 'service_pf';
       const templateID = 'template_portfolio';
       const public_key = 'xbUKzfuh22RF4N59K';
@@ -400,31 +395,28 @@ export class DashboardComponent implements OnInit {
           publicKey: public_key,
         })
         .then((response: any) => {
-          console.log('response', response);
           if (response && response.status == 200) {
             this.openSnackBar('Message Sent!', ['success-message']);
             this.contactForm.reset();
           }
-          this.isLoading = false; // Stop loading
+          this.isLoading = false;
         })
         .catch((error: any) => {
           console.error('Error sending email:', error);
           this.openSnackBar('Error sending email, Please try again.', [
             'error-message',
           ]);
-          this.isLoading = false; // Stop loading
+          this.isLoading = false;
         });
     } else {
       console.log('Form is invalid. Please fill in all required fields.');
-      // You can optionally display a message to the user to fill in all required fields
     }
   }
 
   openSnackBar(message: string, panelClass: string[]) {
-    console.log('message', message);
     this._snackBar.open(message, 'Close', {
       duration: this.durationInSeconds * 3000,
-      panelClass: ['custom-snackbar'], // Apply the custom CSS classes here
+      panelClass: ['custom-snackbar'],
     });
   }
 
@@ -439,15 +431,11 @@ export class DashboardComponent implements OnInit {
 
   toggleNavbar(): void {
     const navbar = document.getElementById('myTopnav') as HTMLElement;
-    if (navbar.className.includes('responsive')) {
-      navbar.className = navbar.className.replace(' responsive', '');
-    } else {
-      navbar.className += ' responsive';
-    }
+    navbar.classList.toggle('responsive');
   }
 
   closeNavbar(): void {
     const navbar = document.getElementById('myTopnav') as HTMLElement;
-    navbar.className = navbar.className.replace(' responsive', '');
+    navbar.classList.remove('responsive');
   }
 }

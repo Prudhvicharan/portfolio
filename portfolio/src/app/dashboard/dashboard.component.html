@@ -1,13 +1,5 @@
 <div class="dashboard" [ngClass]="{'dark-theme': isDarkTheme}">
-<div class="navbar" id="myTopnav">
-    <div class="navbar-container">
-        <a class="menu-link" data-section="dashboard" [class.active]="isActive('dashboard')" (click)="setActive('dashboard')">Home</a>
-        <a class="menu-link" data-section="work" [class.active]="isActive('work')" (click)="setActive('work')">Experience</a>
-        <a class="menu-link" data-section="education" [class.active]="isActive('education')" (click)="setActive('education')">Education</a>
-        <a class="menu-link" data-section="projects" [class.active]="isActive('projects')" (click)="setActive('projects')">Projects</a>
-        <a class="menu-link" data-section="skills" [class.active]="isActive('skills')" (click)="setActive('skills')">Skills</a>
-        <a class="menu-link" data-section="contact" [class.active]="isActive('contact')" (click)="setActive('contact')">Contact</a>
-    </div>
+<nav class="navbar" id="myTopnav">
     <div class="navbar-icons">
         <button class="icon" (click)="toggleNavbar()">
             <i class="fa fa-bars"></i>
@@ -16,8 +8,15 @@
             <i class="fa-solid" [ngClass]="isDarkTheme ? 'fa-sun' : 'fa-moon'"></i>
         </button>
     </div>
-</div>
-
+    <div class="navbar-container">
+        <a class="menu-link" data-section="dashboard" [class.active]="isActive('dashboard')" (click)="setActive('dashboard')">Home</a>
+        <a class="menu-link" data-section="work" [class.active]="isActive('work')" (click)="setActive('work')">Experience</a>
+        <a class="menu-link" data-section="education" [class.active]="isActive('education')" (click)="setActive('education')">Education</a>
+        <a class="menu-link" data-section="projects" [class.active]="isActive('projects')" (click)="setActive('projects')">Projects</a>
+        <a class="menu-link" data-section="skills" [class.active]="isActive('skills')" (click)="setActive('skills')">Skills</a>
+        <a class="menu-link" data-section="contact" [class.active]="isActive('contact')" (click)="setActive('contact')">Contact</a>
+    </div>
+</nav>
 
     <!-- Home Section -->
     <section id="dashboard" class="intro-section">
@@ -26,7 +25,7 @@
                 <h1><span class="name">Sai Prudhvi Charan Pothumsetty</span></h1>
                 <p class="typing-text">Full Stack Developer</p>
                 <div class="social-icons">
-                    <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"><i
+                    <a href="mailto:prudhvicharan43@gmail.com" class="social-icon" target="_blank" rel="noopener noreferrer"><i
                             class="fa fa-envelope"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=100008269187928" class="social-icon"
                         target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
