@@ -172,32 +172,61 @@ body {
 //   --text-light-accent: #FFD700; /* Gold */
 // }
 
+// :root {
+//   /* Dark theme */
+//   --primary-dark: #0F0F0F;
+//   --secondary-dark: #1D1D1D;
+//   --tertiary-dark: #2C2C2C;
+//   --quaternary-dark: #880808;
+//   --quinary-dark: #AA4A44;
+
+//   /* Light theme */
+//   --primary-light: #fff;
+//   --secondary-light: #E8E8E8;
+//   --tertiary-light: #D3D3D3;
+//   --quaternary-light: #E60000;
+//   --quinary-light: #FF6666;
+
+//   /* Text colors for dark theme */
+//   --text-dark-primary: #FFFFFF;
+//   --text-dark-secondary: #F0F0F0;
+//   --text-dark-tertiary: #E0E0E0;
+//   --text-dark-accent: #AA4A44;
+
+//   /* Text colors for light theme */
+//   --text-light-primary: #0F0F0F;
+//   --text-light-secondary: #1D1D1D;
+//   --text-light-tertiary: #2C2C2C;
+//   --text-light-accent: #880808;
+// }
+
+
 :root {
   /* Dark theme */
-  --primary-dark: #0F0F0F;
-  --secondary-dark: #1D1D1D;
-  --tertiary-dark: #2C2C2C;
-  --quaternary-dark: #880808;
-  --quinary-dark: #AA4A44;
+  --primary-dark: #0F0F0F;    /* Deep, nearly black base */
+  --secondary-dark: #1D1D1D;  /* Very dark gray */
+  --tertiary-dark: #2C2C2C;   /* Dark gray for subtle contrast */
+  --quaternary-dark: #3F3F3F; /* Mid-tone gray accent */
+  --quinary-dark: #7F7F7F;    /* Lighter gray accent for highlights */
 
   /* Light theme */
-  --primary-light: #F7F7F7;
-  --secondary-light: #E8E8E8;
-  --tertiary-light: #D3D3D3;
-  --quaternary-light: #E60000;
-  --quinary-light: #FF6666;
+  --primary-light: #FFFFFF;   /* Crisp white base */
+  --secondary-light: #E8E8E8;   /* Soft light gray */
+  --tertiary-light: #D3D3D3;    /* Slightly darker gray for depth */
+  --quaternary-light: #B0B0B0;  /* Medium gray accent */
+  --quinary-light: #888888;     /* Darker gray accent for emphasis */
 
   /* Text colors for dark theme */
-  --text-dark-primary: #FFFFFF;
-  --text-dark-secondary: #F0F0F0;
-  --text-dark-tertiary: #E0E0E0;
-  --text-dark-accent: #AA4A44;
+  --text-dark-primary: #FFFFFF; /* Main text on dark backgrounds */
+  --text-dark-secondary: #E0E0E0;
+  --text-dark-tertiary: #C0C0C0;
+  --text-dark-accent: #7F7F7F;  /* Matches the lighter accent */
 
   /* Text colors for light theme */
-  --text-light-primary: #0F0F0F;
+  --text-light-primary: #0F0F0F; /* Main text on light backgrounds */
   --text-light-secondary: #1D1D1D;
   --text-light-tertiary: #2C2C2C;
-  --text-light-accent: #880808;
+  --text-light-accent: #888888; /* Matches the darker accent */
 }
 
 // :root {

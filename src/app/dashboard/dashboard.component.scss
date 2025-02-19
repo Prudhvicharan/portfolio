@@ -22,7 +22,7 @@ html {
         &.active {
           // color: var(--text-dark-primary);
           // color: var(--text-dark-accent);
-          color: var(--quinary-light);
+          color: var(--text-dark-primary)
         }
 
         &.active::after,
@@ -58,29 +58,26 @@ html {
 
   .intro-section {
     background-color: var(--primary-dark);
-    color: var(--text-dark-primary);
+    .intro-hero {
+      background-color: var(--primary-dark);
 
-    .intro-content {
-      .intro-text {
-        h1 {
+      .hero-text-container {
+        .hero-heading {
+          color: var(--text-dark-primary) !important; // replaces #111
+        }
+        .hero-subheading {
           .name {
-            color: var(--quinary-light);
-            /* Update color for dark theme */
+            color: var(--text-dark-primary) !important; // replaces #111
+          }
+
+          .role {
+            color: var(--text-light-accent) !important; // replaces #666
           }
         }
-
-        p {
-          color: var(--text-dark-primary);
-        }
-
-        .social-icons {
-          .social-icon {
-            color: var(--text-dark-primary);
-
-            &:hover {
-              transition: all 0.3s ease;
-              opacity: 0.8;
-            }
+        .hero-description {
+          .role {
+            font-weight: 600;
+            color: var(--text-light-accent); // replaces #666
           }
         }
       }
@@ -378,93 +375,114 @@ html {
 }
 
 .intro-section {
-  background-color: var(--primary-light);
-  color: var(--text-light-primary);
-  text-align: center;
-  padding: 72px;
+  background-color: var(--primary-light); 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .intro-content {
+  .intro-hero {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1200px; // container width
+    width: 100%;
+    padding: 0 40px; // horizontal padding
 
-    .intro-text {
-      flex: 1 1 50%;
-      max-width: 600px;
-      padding-right: 100px;
-      text-align: left;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
 
-      h1 {
-        font-size: 40px;
-        font-weight: bold;
-        margin-bottom: 10px;
+    /* TEXT CONTAINER */
+    .hero-text-container {
+      flex: 1;
+      margin-right: 40px; // space between text & image
 
-        .name {
-          color: var(--secondary-dark);
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+
+      .hero-heading {
+        font-size: 4rem;
+        font-weight: 300;
+        margin-bottom: 20px;
+        color: var(--text-light-primary); // replaces #111
+        @media (max-width: 768px) {
+          margin-top: 10px;
+          font-size: 2.5rem; // Reduced font size for smaller screens
         }
       }
 
-      .typing-text {
-        font-size: 28px;
-        padding: 10px 0px;
-        white-space: nowrap;
-    }
+      .hero-subheading {
+        font-size: 2rem;
+        line-height: 1.4;
+
+        @media (max-width: 768px) {
+          font-size: 1.2rem; // Reduced font size for smaller screens
+        }
+        .name {
+          font-weight: 600;
+          color: var(--text-light-primary); // replaces #111
+        }
+
+        .role {
+          font-weight: 600;
+          color: var(--text-light-accent); // replaces #666
+        }
+        
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem; // Reduced font size for smaller screens
+        }
+        .role {
+          font-weight: 600;
+          color: var(--text-light-accent); // replaces #666
+        }
+      }
 
       .social-icons {
         margin-top: 20px;
 
         .social-icon {
-          display: inline-block;
-          margin-right: 15px;
-          font-size: 24px;
-          color: var(--text-light-primary);
-          transition: all 0.3s ease;
-          opacity: 0.8;
+          font-size: 1.4rem;
+          margin-right: 30px;
+          color: var(--text-light-tertiary); // replaces #333
+          transition: opacity 0.3s ease;
 
           &:hover {
-            opacity: 1;
-            transform: translateY(-3px);
+            opacity: 0.7;
+          }
+          @media (max-width: 768px) {
+            font-size: 1.2rem; // Reduced font size for smaller screens
+            margin-right: 20px;
           }
         }
       }
     }
 
-    .intro-photo {
-      flex: 0 0 350px;
-      max-width: 350px;
+    /* IMAGE CONTAINER */
+    .hero-image-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end; // push image to the right
+      background: none; // no background color
+      box-shadow: none;
+      border: none;
 
-      img {
-        width: 100%;
+      .hero-image {
+        max-width: 100%;
         height: auto;
-        object-fit: cover;
-        border-radius: 50%;
-        animation: pulse 2s infinite;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        filter: grayscale(100%);
       }
     }
   }
 }
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 
 .work-section {
   background-color: var(--primary-light);
@@ -1382,7 +1400,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 7%;
+  padding: 15px 9.5%;
   // width: 100%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -1395,7 +1413,7 @@ html {
     order: 1;
 
     .menu-link {
-      color: var(--text-light-secondary);
+      color: var(--text-light-accent);
       text-decoration: none;
       font-weight: 600;
       font-size: 16px;
@@ -1410,13 +1428,13 @@ html {
         left: 0;
         width: 0;
         height: 2px;
-        background-color: var(--quaternary-light);
+        background-color: var(--text-light-secondary);
         transition: width 0.3s ease;
       }
 
       &:hover,
       &.active {
-        color: var(--text-light-accent);
+        color: var(--text-light-secondary);
 
         &::after {
           width: 100%;

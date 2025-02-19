@@ -191,7 +191,7 @@ export const workExperiences: WorkExperience[] = [
 
 export const userData: UserData = {
   name: 'Sai Prudhvi Charan Pothumsetty',
-  role: 'Full Stack Developer',
+  role: 'Full Stack Developer.',
   email: 'prudhvicharan43@gmail.com',
   phone: '8167628317',
   facebook: 'https://www.facebook.com/profile.php?id=100008269187928',

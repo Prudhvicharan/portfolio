@@ -26,27 +26,43 @@
 
   <!-- Home Section -->
   <section id="dashboard" class="intro-section">
-    <div class="intro-content">
-      <div class="intro-text">
-        <h1><span class="name">{{ userData.name }}</span></h1>
-        <p class="typing-text">{{ userData.role }}</p>
+    <div class="intro-hero">
+      <div class="hero-text-container">
+        <h1 class="hero-heading">Hello</h1>
+        <p class="hero-subheading">
+          It’s <span class="name">{{ userData.name }}</span>, 
+          a <span class="role">{{ userData.role }}</span>
+        </p>
+        <p class="hero-description">
+          I am a passionate about building <span class="role">impactful applications</span> 
+          that solve <span class="role">real-world challenges</span>.
+        </p>
         <div class="social-icons">
-          <a href="mailto:{{ userData.email }}" class="social-icon" target="_blank" rel="noopener noreferrer"><i
-              class="fa fa-envelope"></i></a>
-          <a href="{{userData.facebook}}" class="social-icon" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-facebook"></i></a>
-          <a href="{{userData.linkedin}}" class="social-icon" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-linkedin"></i></a>
-          <a href="{{userData.github}}" class="social-icon" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-github"></i></a>
+          <a href="mailto:{{ userData.email }}" class="social-icon"
+            ><i class="fa fa-envelope"></i
+          ></a>
+          <a href="{{ userData.facebook }}" class="social-icon"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="{{ userData.linkedin }}" class="social-icon"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="{{ userData.github }}" class="social-icon"
+            ><i class="fab fa-github"></i
+          ></a>
         </div>
       </div>
-      <div class="intro-photo">
-        <img [src]="isDarkTheme ? 'assets/pic-dark.png' : 'assets/pic-light.png'" alt="Your Photo" class="photo">
+  
+      <div class="hero-image-container">
+        <img
+          [src]="'assets/profile-pic2.png'"
+          alt="Your Photo"
+          class="hero-image"
+        />
       </div>
     </div>
   </section>
-
+  
   <section id="work" class="work-section">
     <h2 class="section-title">Experience</h2>
     <div class="work-split-container">
