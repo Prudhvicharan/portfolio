@@ -101,13 +101,143 @@ export const companyProjectsData: Project[] = [
   },
 ];
 
+// export const skillsData: Category[] = [
+//   {
+//     category: 'Programming Languages',
+//     items: [
+//       { name: 'JavaScript', percentage: 80 },
+//       { name: 'TypeScript', percentage: 90 },
+//       { name: 'Python', percentage: 90 },
+//       { name: 'SQL', percentage: 80 },
+//       { name: 'HTML5', percentage: 90 },
+//       { name: 'CSS', percentage: 85 },
+//       { name: 'SCSS', percentage: 90 },
+//     ],
+//   },
+//   {
+//     category: 'Developer Tools',
+//     items: [
+//       { name: 'VS Code', percentage: 95 },
+//       // { name: 'Git', percentage: 90 },
+//       { name: 'GitLab', percentage: 90 },
+//       { name: 'GitHub', percentage: 90 },
+//       { name: 'Jira', percentage: 85 },
+//       { name: 'Postman', percentage: 80 },
+//       // { name: 'CAST', percentage: 75 },
+//       { name: 'PuTTY', percentage: 70 },
+//     ],
+//   },
+//   {
+//     category: 'Frontend Frameworks',
+//     items: [
+//       { name: 'Angular', percentage: 85 },
+//       { name: 'AngularJS', percentage: 70 },
+//       { name: 'Bootstrap', percentage: 80 },
+//       // { name: 'Responsive Design', percentage: 80 },
+//     ],
+//   },
+//   {
+//     category: 'Backend Technologies',
+//     items: [
+//       { name: 'Node.js', percentage: 80 },
+//       { name: 'Express.js', percentage: 70 },
+//       { name: 'MySQL', percentage: 65 },
+//       { name: 'MongoDB', percentage: 75 },
+//     ],
+//   },
+//   {
+//     category: 'Testing Frameworks',
+//     items: [
+//       { name: 'Jasmine', percentage: 80 },
+//       { name: 'Karma', percentage: 75 },
+//       { name: 'Selenium IDE', percentage: 70 },
+//     ],
+//   },
+//   {
+//     category: 'Protocols and Formats',
+//     items: [
+//       { name: 'RESTful APIs', percentage: 75 },
+//       { name: 'JSON', percentage: 85 },
+//     ],
+//   },
+// ];
+
+// export const skillsData: Category[] = [
+//   {
+//     category: 'Programming Languages',
+//     items: [
+//       { name: 'JavaScript', percentage: 80 },
+//       { name: 'TypeScript', percentage: 90 },
+//       { name: 'Python', percentage: 90 },
+//       { name: 'SQL', percentage: 80 },
+//     ],
+//   },
+//   {
+//     category: 'Markup & Styling',
+//     items: [
+//       { name: 'HTML5', percentage: 90 },
+//       { name: 'CSS', percentage: 85 },
+//       { name: 'SCSS', percentage: 90 },
+//     ],
+//   },
+//   {
+//     category: 'Developer Tools',
+//     items: [
+//       { name: 'VS Code', percentage: 95 },
+//       { name: 'GitLab', percentage: 90 },
+//       { name: 'GitHub', percentage: 90 },
+//       { name: 'Jira', percentage: 85 },
+//       { name: 'Postman', percentage: 80 },
+//       { name: 'PuTTY', percentage: 70 },
+//     ],
+//   },
+//   {
+//     category: 'Frontend Frameworks & Libraries',
+//     items: [
+//       { name: 'Angular', percentage: 85 },
+//       { name: 'AngularJS', percentage: 70 },
+//       { name: 'Bootstrap', percentage: 80 },
+//     ],
+//   },
+//   {
+//     category: 'Backend Frameworks',
+//     items: [
+//       { name: 'Node.js', percentage: 80 },
+//       { name: 'Express.js', percentage: 70 },
+//     ],
+//   },
+//   {
+//     category: 'Database Technologies',
+//     items: [
+//       { name: 'MySQL', percentage: 65 },
+//       { name: 'MongoDB', percentage: 75 },
+//     ],
+//   },
+//   {
+//     category: 'Testing Frameworks',
+//     items: [
+//       { name: 'Jasmine', percentage: 80 },
+//       { name: 'Karma', percentage: 75 },
+//       { name: 'Selenium IDE', percentage: 70 },
+//     ],
+//   },
+//   {
+//     category: 'API & Data Formats',
+//     items: [
+//       { name: 'RESTful APIs', percentage: 75 },
+//       { name: 'JSON', percentage: 85 },
+//     ],
+//   },
+// ];
+
 export const skillsData: Category[] = [
   {
-    category: 'Programming Languages',
+    category: 'Languages',
     items: [
-      { name: 'JavaScript', percentage: 80 },
-      { name: 'TypeScript', percentage: 90 },
       { name: 'Python', percentage: 90 },
+      { name: 'JavaScript', percentage: 85 },
+      { name: 'TypeScript', percentage: 90 },
+      { name: 'Java', percentage: 80 },
       { name: 'SQL', percentage: 80 },
       { name: 'HTML5', percentage: 90 },
       { name: 'CSS', percentage: 85 },
@@ -117,40 +247,52 @@ export const skillsData: Category[] = [
   {
     category: 'Developer Tools',
     items: [
+      { name: 'npm', percentage: 90 },
+      { name: 'Webpack', percentage: 80 },
       { name: 'VS Code', percentage: 95 },
-      // { name: 'Git', percentage: 90 },
-      { name: 'GitLab', percentage: 90 },
-      { name: 'GitHub', percentage: 90 },
       { name: 'Jira', percentage: 85 },
       { name: 'Postman', percentage: 80 },
-      // { name: 'CAST', percentage: 75 },
       { name: 'PuTTY', percentage: 70 },
+      { name: 'Git', percentage: 90 },
+      { name: 'GitLab', percentage: 90 },
     ],
   },
   {
-    category: 'Frontend Frameworks',
+    category: 'Frameworks',
     items: [
       { name: 'Angular', percentage: 85 },
       { name: 'AngularJS', percentage: 70 },
+      { name: 'Express.js', percentage: 70 },
+      { name: 'Vue.js', percentage: 80 },
+      { name: 'Spring Boot', percentage: 75 },
       { name: 'Bootstrap', percentage: 80 },
-      // { name: 'Responsive Design', percentage: 80 },
     ],
   },
   {
-    category: 'Backend Technologies',
+    category: 'Libraries/Technologies',
     items: [
-      { name: 'Node.js', percentage: 80 },
-      { name: 'Express.js', percentage: 70 },
+      { name: 'Angular Material', percentage: 80 },
+      { name: 'Primeng', percentage: 90 },
+      { name: 'RxJS', percentage: 75 },
+      { name: 'jQuery', percentage: 70 },
+      { name: 'React', percentage: 85 },
+      { name: 'GraphQL', percentage: 70 },
+    ],
+  },
+  {
+    category: 'Database Technologies',
+    items: [
       { name: 'MySQL', percentage: 65 },
+      { name: 'PostgreSQL', percentage: 70 },
       { name: 'MongoDB', percentage: 75 },
     ],
   },
   {
-    category: 'Testing Frameworks',
+    category: 'Testing',
     items: [
       { name: 'Jasmine', percentage: 80 },
       { name: 'Karma', percentage: 75 },
-      { name: 'Selenium IDE', percentage: 70 },
+      { name: 'Jest', percentage: 80 },
     ],
   },
   {
@@ -158,6 +300,20 @@ export const skillsData: Category[] = [
     items: [
       { name: 'RESTful APIs', percentage: 75 },
       { name: 'JSON', percentage: 85 },
+    ],
+  },
+  {
+    category: 'Infrastructure & DevOps',
+    items: [
+      {
+        name: 'AWS',
+        percentage: 80,
+      },
+      { name: 'Terraform', percentage: 75 },
+      { name: 'Docker', percentage: 85 },
+      { name: 'Kubernetes', percentage: 80 },
+      { name: 'SonarQube', percentage: 70 },
+      { name: 'SonarLint', percentage: 75 },
     ],
   },
 ];
