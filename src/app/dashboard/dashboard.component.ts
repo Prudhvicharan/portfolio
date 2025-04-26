@@ -7,6 +7,7 @@ import {
   OnDestroy,
   ViewEncapsulation,
   inject,
+  ViewChild,
 } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -58,15 +59,19 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   private visibleSections: Set<string> = new Set();
   private scrollTimeout: number | null = null;
+  private animationObserver: IntersectionObserver | null = null;
 
   isDarkTheme = false;
+  isScrolled = false;
+  isResponsive = false;
   selectedProject: Project | null = null;
-  workDetails = workExperiences[0].details || '';
+  workDetails = workExperiences[0].details || [];
   selectedCard = 0;
   contactForm!: FormGroup;
   showSidebarToggle = false;
   activeSection = 'dashboard';
   isLoading = false;
+  currentYear = new Date().getFullYear();
 
   readonly workExperiences: ReadonlyArray<WorkExperience> = workExperiences;
   readonly educationData: ReadonlyArray<Education> = educationData;
@@ -83,11 +88,19 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.checkZoomLevel();
     window.addEventListener('resize', this.checkZoomLevel.bind(this));
+    window.addEventListener('scroll', this.handleNavbarScroll.bind(this), { passive: true });
   }
 
   ngAfterViewInit(): void {
     this.setupMenuLinks();
     this.setupSectionObserver();
+    this.initTypingAnimation();
+    this.initSkillBarAnimation();
+    this.handleNavbarScroll();
+    this.setupSkillCategoryAnimations();
+
+    // Initialize section animations
+    this.initSectionAnimations();
   }
 
   ngOnDestroy(): void {
@@ -95,13 +108,73 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       window.clearTimeout(this.scrollTimeout);
     }
     window.removeEventListener('scroll', this.handleScroll);
-    window.removeEventListener('resize', this.checkZoomLevel.bind(this));
+    window.removeEventListener('scroll', this.handleNavbarScroll);
+    window.removeEventListener('resize', this.checkZoomLevel);
     this.observer?.disconnect();
     this.visibleSections.clear();
     this.destroy$.next();
     this.destroy$.complete();
+    if (this.animationObserver) {
+      this.animationObserver.disconnect();
+      this.animationObserver = null;
+    }
   }
 
+ // In dashboard.component.ts
+
+// Update this method to handle both section and staggered animations
+initSectionAnimations(): void {
+  // Set a small delay to ensure the DOM has fully rendered
+  setTimeout(() => {
+    // First, handle regular section animations
+    const animatedSections = document.querySelectorAll('.animate-section');
+
+    // Observer for regular sections
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-active');
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    // Observe all animated sections
+    animatedSections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Second, handle staggered children separately
+    const staggerContainers = document.querySelectorAll('.stagger-children');
+
+    // Observer for stagger containers
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          container.classList.add('animate-active');
+
+          // Manually add classes to children with delays
+          const children = container.children;
+          Array.from(children).forEach((child, index) => {
+            // Set inline delay based on index
+            (child as HTMLElement).style.transitionDelay = `${index * 0.1}s`;
+            setTimeout(() => {
+              child.classList.add('animate-active');
+            }, 50); // Small delay to ensure transition works
+          });
+
+          staggerObserver.unobserve(container);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe all stagger containers
+    staggerContainers.forEach(container => {
+      staggerObserver.observe(container);
+    });
+  }, 100);
+}
   private initializeForm(): void {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
@@ -264,22 +337,152 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+  // New method to handle navbar background change on scroll
+  private handleNavbarScroll(): void {
+    this.isScrolled = window.scrollY > 50;
+  }
+
+  // New method to initialize the typing animation
+  private initTypingAnimation(): void {
+    const phrases = [
+      'building impactful applications',
+      'solving complex problems',
+      'creating intuitive UIs',
+      'optimizing performance'
+    ];
+
+    const typingElement = document.getElementById('typing-text');
+
+    if (!typingElement) return;
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 80; // ms per character
+    const deleteSpeed = 40; // ms per character when deleting
+    const pauseDuration = 1500; // pause at the end of a phrase
+
+    const type = () => {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        // Deleting characters
+        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(type, 500); // Pause before typing next phrase
+        } else {
+          setTimeout(type, deleteSpeed);
+        }
+      } else {
+        // Typing characters
+        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(type, pauseDuration); // Pause at the end of the phrase
+        } else {
+          setTimeout(type, typingSpeed);
+        }
+      }
+    };
+
+    // Start the typing effect
+    setTimeout(type, 1000);
+  }
+
+  // New method to animate skill bars on scroll
+  private initSkillBarAnimation(): void {
+    const skillBars = document.querySelectorAll('.skill-bar-inner');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          const percentage = target.parentElement?.parentElement?.querySelector('.skill-level')?.textContent;
+          if (percentage) {
+            target.style.width = percentage;
+          }
+          observer.unobserve(target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    skillBars.forEach(bar => {
+      observer.observe(bar);
+    });
+  }
+
+  // New method to setup animation delays for skill categories
+  private setupSkillCategoryAnimations(): void {
+    const categories = document.querySelectorAll('.skill-category');
+    categories.forEach((category, index) => {
+      (category as HTMLElement).style.setProperty('--animation-delay', `${index * 0.2}`);
+
+      const items = category.querySelectorAll('.skill-item');
+      items.forEach((item, itemIndex) => {
+        (item as HTMLElement).style.setProperty('--animation-delay', `${itemIndex * 0.1 + index * 0.3}`);
+      });
+    });
+  }
+
+  // New method to determine category icon based on category name
+  getCategoryIcon(category: string): string {
+    switch (category.toLowerCase()) {
+      case 'frontend':
+        return 'fas fa-laptop-code';
+      case 'backend':
+        return 'fas fa-server';
+      case 'database':
+        return 'fas fa-database';
+      case 'languages':
+        return 'fas fa-code';
+      case 'frameworks':
+        return 'fas fa-layer-group';
+      case 'tools':
+        return 'fas fa-tools';
+      case 'cloud':
+        return 'fas fa-cloud';
+      case 'other':
+        return 'fas fa-cogs';
+      default:
+        return 'fas fa-star';
+    }
+  }
+
+  // New method to scroll to top when footer button is clicked
+  scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   toggleDarkTheme(): void {
     this.isDarkTheme = !this.isDarkTheme;
   }
 
   showDetails(work: WorkExperience, index: number): void {
-    this.workDetails = work.details || '';
+    this.workDetails = work.details || [];
     this.selectedCard = index;
   }
 
   showProjectDetails(project: Project): void {
     this.selectedProject = project;
+    // Prevent background scrolling when modal is open
+    document.body.style.overflow = 'hidden';
   }
 
   closeProjectDetails(event?: MouseEvent): void {
-    event?.stopPropagation();
+    if (event) {
+      event.stopPropagation();
+    }
     this.selectedProject = null;
+    // Re-enable scrolling when modal is closed
+    document.body.style.overflow = '';
   }
 
   async onSubmit(): Promise<void> {
@@ -294,7 +497,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const emailParams = {
       from_name: this.contactForm.value.name,
-      subject: this.contactForm.value.subject,
+      subject: this.contactForm.value.subject || 'New Portfolio Contact',
       message: this.contactForm.value.message,
       from_mail: this.contactForm.value.email,
     };
@@ -308,7 +511,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       );
 
       if (response.status === 200) {
-        this.openSnackBar('Message Sent!', ['success-message']);
+        this.openSnackBar('Message Sent Successfully!', ['success-message']);
         this.contactForm.reset();
       }
     } catch (error) {
@@ -331,11 +534,13 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   toggleNavbar(): void {
+    this.isResponsive = !this.isResponsive;
     const navbar = document.getElementById('myTopnav');
     navbar?.classList.toggle('responsive');
   }
 
   closeNavbar(): void {
+    this.isResponsive = false;
     const navbar = document.getElementById('myTopnav');
     navbar?.classList.remove('responsive');
   }
